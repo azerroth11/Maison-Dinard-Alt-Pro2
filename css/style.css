@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@200;300;400;600&display=swap');
+
+@font-face {
+  font-family: 'Trajan_Bold';
+  src: url('../Trajan_Bold.ttf') format('ttf');
+}
+
+:root {
+  --main: rgb(31, 56, 78);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+  height: 100%;
+  height: -webkit-fill-available;
+  width: 100vw;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+i {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/************
+End of Commons
+*************/
+
+/* Nav */
+nav {
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #fff;
+}
+
+form {
+  width: 30%;
+}
+
+input {
+  height: 3rem;
+  width: 100%;
+  margin: 1rem auto;
+  text-indent: 1rem;
+  font-size: 1rem;
+}
+
+input:focus {
+  border: none;
+}
+
+nav {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+nav .logo {
+  height: 12.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1300px;
+}
+
+nav .logo form {
+  display: none;
+}
+
+nav .logo img {
+  height: 125%;
+  max-height: 250px;
+  align-self: flex-start;
+  margin: 0 auto;
+}
+
+nav .logo .links {
+  display: none;
+}
+
+nav .navigation {
+  font-size: 1.2rem;
+  background-color: #fff;
+  border-top: 2px solid grey;
+  border-bottom: 2px solid grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+nav .navigation a {
+  transition: background-color 0.25s;
+  background-color: #fff;
+  padding: 1rem 0;
+  width: 33.33%;
+  text-align: center;
+}
+
+nav .navigation a:focus {
+  background-color: var(--main);
+  color: #fff;
+}
+
+nav .navigation i {
+  display: none;
+}
+
+/* Navigation */
+.rollableMenu {
+  position: absolute;
+  width: min(100%, 500px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  margin: 0 auto;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+  z-index: 5;
+  background-color: #fff;
+}
+
+.rollableMenu div:first-child {
+  width: 100%;
+  max-width: 100%;
+  padding: 1rem 5%;
+  font-weight: bold;
+}
+
+.rollableMenu div:not(:first-child) {
+  padding: 0rem 5% 1rem 5%;
+}
+
+.rollableMenu div:last-child p {
+  position: absolute;
+  top: 1rem;
+  font-weight: bold;
+}
+
+.rollableMenu div:not(:first-child) a:hover,
+.rollableMenu div:not(:first-child) a:focus {
+  font-weight: bold;
+}
+
+.rollableMenu div {
+  width: 50%;
+  max-width: min(250px, 50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.navigation a:hover {
+  background-color: var(--main);
+  color: #fff;
+}
+
+/* Swiper */
+.hero {
+  position: relative;
+  display: none;
+  max-height: 390px;
+  max-width: min(90%, 1300px);
+  margin: 0 auto 2rem auto;
+}
+
+.swiper img {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+
+.swiper div a h1 {
+  position: absolute;
+  top: 50%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 3rem;
+}
+
+.swiper div a:first-child h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 3rem;
+}
+
+/* About */
+.about {
+  display: none;
+  width: 100%;
+  background-color: #d3c3b0;
+  margin: 4rem auto 0 auto;
+  padding: 4rem 0;
+}
+
+.about > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem auto;
+  max-width: 950px;
+}
+
+.about img {
+  max-width: 325px;
+}
+
+.about p {
+  max-width: 50ch;
+  color: #000;
+  padding: 0.75rem 0;
+}
+
+@media screen and (min-width: 800px) {
+  nav .logo form {
+    display: block;
+  }
+
+  nav .logo .links {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20%;
+    text-transform: uppercase;
+    padding: 0 1rem;
+  }
+
+  .hero {
+    display: block;
+  }
+
+  .about {
+    display: block;
+  }
+}
