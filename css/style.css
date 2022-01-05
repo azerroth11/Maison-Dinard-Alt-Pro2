@@ -75,11 +75,12 @@ nav .navigation {
   border-top: 2px solid grey;
   border-bottom: 2px solid grey;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
-  max-width: 500px;
   margin: 0 auto;
+  max-width: min(90%, 1000px);
 }
 
 nav .navigation a {
@@ -88,67 +89,12 @@ nav .navigation a {
   padding: 1rem 0;
   text-align: center;
   width: 100%;
-}
-
-nav .navigation a:nth-child(2) {
-  width: 50%;
-}
-
-nav .navigation a:focus {
-  background-color: var(--main);
-  color: #fff;
-}
-
-nav .navigation i {
-  display: none;
-}
-
-/* Navigation */
-.rollableMenu {
-  position: absolute;
-  width: min(100%, 500px);
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-wrap: wrap;
-  overflow: hidden;
+  max-width: 190px;
   margin: 0 auto;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
-  z-index: 10;
-  background-color: #fff;
 }
 
-.rollableMenu div:first-child {
-  width: 100%;
-  max-width: 100%;
-  padding: 1rem 5%;
-  font-weight: bold;
-}
-
-.rollableMenu div:not(:first-child) {
-  padding: 0rem 1rem 1rem 1rem;
-}
-
-.rollableMenu div:last-child p {
-  position: absolute;
-  top: 1rem;
-  font-weight: bold;
-}
-
-.rollableMenu div:not(:first-child) a:hover,
-.rollableMenu div:not(:first-child) a:focus {
-  font-weight: bold;
-}
-
-.rollableMenu div {
-  width: 50%;
-  max-width: min(250px, 50%);
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.navigation a:hover {
+nav .navigation a:focus,
+nav .navigation a:hover {
   background-color: var(--main);
   color: #fff;
 }
@@ -189,6 +135,40 @@ nav .navigation i {
   line-height: 3rem;
 }
 
+/* RollableMenu */
+.rollableMenu {
+  position: absolute;
+  width: min(90%, 1000px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+  z-index: 10;
+  background-color: #fff;
+}
+
+.rollableMenu div {
+  width: 30%;
+  max-width: min(500px, 50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 3rem 0 2rem 2rem;
+}
+
+.rollableMenu div p {
+  position: absolute;
+  top: 1rem;
+  font-weight: bold;
+}
+
+.rollableMenu div a:hover,
+.rollableMenu div a:focus {
+  font-weight: bold;
+}
+
 /* Domain Details */
 .domainDetails {
   display: flex;
@@ -204,9 +184,10 @@ nav .navigation i {
   border: 2px solid var(--main);
 }
 
-.domainDetails img {
+.domainDetails img,
+.domainDetails a img {
   max-width: 350px;
-  max-height: 75%;
+  max-height: min(50%, 300px);
 }
 
 .domainDetails div {
@@ -233,8 +214,18 @@ nav .navigation i {
   transition: scale 0.2s;
 }
 
-.domainDetails div a:hover {
+.domainDetails div a:hover,
+.domainDetails div i:hover {
   scale: 1.03;
+  cursor: pointer;
+}
+
+.domainDetails div i {
+  position: absolute;
+  top: 2rem;
+  right: 1.5rem;
+  font-size: 30px;
+  transition: scale 0.2s;
 }
 
 /* Logos */
