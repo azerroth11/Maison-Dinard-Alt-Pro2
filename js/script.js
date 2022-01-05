@@ -36,6 +36,14 @@ navigationItems.forEach((a) => {
                     const domainItem = menuDivDomains.appendChild(document.createElement('a'))
                     domainItem.href = 'javascript:;'
                     domainItem.innerText = domain.id
+                    domainItem.addEventListener('click', () => {
+                      rollableMenu.innerHTML = ''
+                      const hero = document.querySelector('.hero')
+                      if (hero.lastElementChild.classList.contains('swiper-pagination')) {
+                        const domainDetails = hero.appendChild(document.createElement('div'))
+                        domainDetails.classList.add('domainDetails')
+                      }
+                    })
                   }
                 })
               })
@@ -58,47 +66,55 @@ const data = [
     id: 'Domaine Dubost',
     products: ['Vins de Bourgogne'],
     color: ['Vin', 'Rouge'],
+    logo: './img/logos/domaineDubost.webp',
   },
   {
     location: 'BEAUJOLAIS',
     id: 'Château de Pizay',
     products: ['Morgon, Beaujolais, Bourgogne'],
     color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    logo: './img/logos/chateauPizay.webp',
   },
   {
     location: 'BORDEAUX',
     id: 'H. Cuvelier & Fils',
     products: ['Vins de Bordeaux'],
     color: ['Vin', 'Rouge'],
+    logo: './img/logos/cuvelierFils.webp',
   },
   {
     location: 'BORDEAUX',
     id: 'Domaines Select',
     color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    logo: '',
   },
-  { location: 'BORDEAUX', id: 'Gironde et Gascogne', color: ['Rouge'] },
+  { location: 'BORDEAUX', id: 'Gironde et Gascogne', color: ['Rouge'], logo: '' },
   {
     location: 'BORDEAUX',
     id: 'Château Tourteau Chollet',
     color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    logo: '',
   },
   {
     location: 'BORDEAUX',
     id: 'Famille André Lurton',
     products: ['AOC Pessac Leognan'],
     color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    logo: './img/logos/andré-lurton-logo.webp',
   },
   {
     location: 'BOURGOGNE',
     id: 'Domaines Devillard',
     products: ['AOC Mercurey'],
     color: ['Vin', 'Rouge', 'Blanc'],
+    logo: '',
   },
   {
     location: 'BOURGOGNE',
     id: 'Domaine Nathalie & Gilles Fèvre',
     products: ['AOC Chablis'],
     color: ['Vin', 'Blanc'],
+    logo: '',
   },
   {
     location: 'BOURGOGNE',
@@ -203,12 +219,12 @@ const data = [
   },
   {
     location: 'PROVENCE',
-    id: 'Domaine la Rouillère ',
+    id: 'Domaine la Rouillère',
     color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
   },
   {
     location: 'RHONE',
-    id: 'Yanne Chave',
+    id: 'Yann Chave',
     products: ['Crozes Hermitage & Hermitage'],
     color: ['Vin', 'Rouge', 'Blanc'],
   },

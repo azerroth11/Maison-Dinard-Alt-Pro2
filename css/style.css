@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@200;300;400;600&display=swap');
 
-@font-face {
-  font-family: 'Trajan_Bold';
-  src: url('../Trajan_Bold.ttf') format('ttf');
-}
-
 :root {
   --main: rgb(31, 56, 78);
 }
@@ -45,32 +40,13 @@ End of Commons
 
 /* Nav */
 nav {
+  max-width: 1300px;
+  margin: 0 auto;
   text-align: center;
   position: sticky;
   top: 0;
   z-index: 100;
   background-color: #fff;
-}
-
-form {
-  width: 30%;
-}
-
-input {
-  height: 3rem;
-  width: 100%;
-  margin: 1rem auto;
-  text-indent: 1rem;
-  font-size: 1rem;
-}
-
-input:focus {
-  border: none;
-}
-
-nav {
-  max-width: 1300px;
-  margin: 0 auto;
 }
 
 nav .logo {
@@ -82,15 +58,10 @@ nav .logo {
   max-width: 1300px;
 }
 
-nav .logo form {
-  display: none;
-}
-
 nav .logo img {
   height: 125%;
   max-height: 250px;
   align-self: flex-start;
-  margin: 0 auto;
 }
 
 nav .logo .links {
@@ -154,7 +125,7 @@ nav .navigation i {
 }
 
 .rollableMenu div:not(:first-child) {
-  padding: 0rem 5% 1rem 5%;
+  padding: 0rem 1rem 1rem 1rem;
 }
 
 .rollableMenu div:last-child p {
@@ -184,10 +155,9 @@ nav .navigation i {
 /* Swiper */
 .hero {
   position: relative;
-  display: none;
-  max-height: 390px;
-  max-width: min(90%, 1300px);
-  margin: 0 auto 2rem auto;
+  max-height: 400px;
+  max-width: 1300px;
+  margin: 2rem auto;
 }
 
 .swiper img {
@@ -216,6 +186,47 @@ nav .navigation i {
   text-align: center;
   text-transform: uppercase;
   line-height: 3rem;
+}
+
+/* Domain Details */
+.domainDetails {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  z-index: 100;
+}
+
+/* Logos */
+.logos {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 2rem;
+  margin: 0 auto;
+  max-width: 1300px;
+}
+
+.logos img {
+  object-fit: contain;
+  max-height: 100px;
+  max-width: 150px;
+  filter: saturate(0) opacity(50%);
+}
+
+.logos img:hover {
+  filter: saturate(0) opacity(100%);
+}
+
+/* Comment */
+.comment {
+  max-width: min(90%, 50ch);
+  text-align: center;
+  margin: 5rem auto;
+  padding: 1rem 2rem;
+  border: 2px solid rgba(0, 0, 0, 0.176);
+  color: rgba(0, 0, 0, 0.75);
 }
 
 /* About */
@@ -262,6 +273,10 @@ nav .navigation i {
 
   .hero {
     display: block;
+  }
+
+  .logos {
+    display: flex;
   }
 
   .about {
