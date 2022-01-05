@@ -5,7 +5,7 @@ navigationItems.forEach((a) => {
   a.addEventListener('click', () => {
     const rollableMenu = document.querySelector('.rollableMenu')
     const results = document.querySelector('.results')
-    if (a.innerText == 'Vins' && rollableMenu.innerHTML == '') {
+    if (a.innerText == 'Vins' && rollableMenu.innerText == '') {
       const menuDiv = rollableMenu.appendChild(document.createElement('div'))
       const menuDivLink = menuDiv.appendChild(document.createElement('a'))
       menuDivLink.href = 'javascript:;'
@@ -15,7 +15,7 @@ navigationItems.forEach((a) => {
         data.forEach((domain) => {
           if (domain.color.includes('Vin')) {
             if (
-              menuDivRegions.innerHTML == '' ||
+              menuDivRegions.innerText == '' ||
               menuDivRegions.lastChild.innerText != domain.location
             ) {
               const regionList = menuDivRegions.appendChild(document.createElement('a'))
@@ -26,7 +26,7 @@ navigationItems.forEach((a) => {
                   const menuDivDomains = rollableMenu.appendChild(document.createElement('div'))
                   menuDivDomains.classList.add('domains')
                 } else {
-                  document.querySelector('.domains').innerHTML = ''
+                  document.querySelector('.domains').innerText = ''
                 }
                 const menuDivDomains = document.querySelector('.domains')
                 const menuDomains = menuDivDomains.appendChild(document.createElement('p'))
@@ -37,12 +37,27 @@ navigationItems.forEach((a) => {
                     domainItem.href = 'javascript:;'
                     domainItem.innerText = domain.id
                     domainItem.addEventListener('click', () => {
-                      rollableMenu.innerHTML = ''
+                      rollableMenu.innerText = ''
                       const hero = document.querySelector('.hero')
                       if (hero.lastElementChild.classList.contains('swiper-pagination')) {
                         const domainDetails = hero.appendChild(document.createElement('div'))
                         domainDetails.classList.add('domainDetails')
                       }
+                      const domainDetails = document.querySelector('.domainDetails')
+                      domainDetails.textContent = ''
+                      const domainLogo = domainDetails.appendChild(document.createElement('img'))
+                      domainLogo.src = domain.logo
+                      const domainDetailsDiv = domainDetails.appendChild(
+                        document.createElement('div')
+                      )
+                      const domainName = domainDetailsDiv.appendChild(document.createElement('h1'))
+                      domainName.innerText = domain.id
+                      const domainSpeech = domainDetailsDiv.appendChild(document.createElement('p'))
+                      domainSpeech.innerText =
+                        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis maiores quia repellat totam rem reprehenderit expedita et illum sit libero a, quasi nostrum, aperiam similique?'
+                      const domainLink = domainDetailsDiv.appendChild(document.createElement('a'))
+                      domainLink.innerText = 'Site Web'
+                      domainLink.href = 'javascript:;'
                     })
                   }
                 })
@@ -51,10 +66,10 @@ navigationItems.forEach((a) => {
           }
         })
       }
-    } else if (a.innerText == 'Vins' && !rollableMenu.innerHTML == '') {
-      rollableMenu.innerHTML = ''
+    } else if (a.innerText == 'Vins' && !rollableMenu.innerText == '') {
+      rollableMenu.innerText = ''
     } else {
-      rollableMenu.innerHTML = ''
+      rollableMenu.innerText = ''
     }
   })
 })
