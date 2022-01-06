@@ -281,7 +281,7 @@ nav .navigation a {
   text-align: center;
   margin: 5rem auto;
   padding: 1rem 2rem;
-  border: 2px solid rgba(0, 0, 0, 0.176);
+  border: 2px solid rgba(31, 56, 78, 0.25);
   color: rgba(0, 0, 0, 0.75);
 }
 
@@ -294,17 +294,21 @@ nav .navigation a {
 .aboutDiv > img {
   max-height: 500px;
   max-width: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
 /* Footer */
 footer {
-  position: absolute;
-  bottom: 7.5px;
   width: 100vw;
 }
 
-footer a {
-  color: inherit;
+footer .mail {
+  color: var(--secondary);
+  font-weight: bold;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
 
 footer p {

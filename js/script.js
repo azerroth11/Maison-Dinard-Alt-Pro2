@@ -129,6 +129,7 @@ function prepareDetails(rollableMenu) {
     domainDetails.classList.add('domainDetails')
   }
   const domainDetails = document.querySelector('.domainDetails')
+  domainDetails.classList.remove('appellations')
   domainDetails.classList.remove('aboutDiv')
   domainDetails.textContent = ''
   const domainCloseBtn = domainDetails.appendChild(document.createElement('i'))
