@@ -107,10 +107,15 @@ navigationItems.forEach((a) => {
           details.addEventListener('click', () => {
             domainDetails.classList.remove('appellations')
             prepareDetails(rollableMenu)
+            const choice = domainDetails.appendChild(document.createElement('p'))
+            choice.classList.add('choice')
+            choice.innerText = 'Choisissez un domaine :'
             data.forEach((domain) => {
-              if (domain.products == product) {
-                createDetails(domain, domainDetails)
-              }
+              domain.products.forEach((item) => {
+                if (item === product) {
+                  createDetails(domain, domainDetails)
+                }
+              })
             })
           })
         }
@@ -224,6 +229,7 @@ const data = [
   {
     location: 'Bordeaux',
     id: 'Domaines Select',
+    products: [''],
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: '',
     web: '',
@@ -231,6 +237,7 @@ const data = [
   {
     location: 'Bordeaux',
     id: 'Gironde et Gascogne',
+    products: [''],
     color: ['Vins', 'Rouge'],
     logo: './img/logos/girondeEtGascogne.webp',
     web: 'https://www.gironde-et-gascogne.com/',
@@ -238,6 +245,7 @@ const data = [
   {
     location: 'Bordeaux',
     id: 'Château Tourteau Chollet',
+    products: [''],
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/tourteauChollet.webp',
     web: '',
@@ -309,6 +317,7 @@ const data = [
   {
     location: 'Languedoc',
     id: 'Domaine Grand Chemin',
+    products: [''],
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineGrandChemin.webp',
     web: 'https://www.domainegrandchemin.fr/',
@@ -316,6 +325,7 @@ const data = [
   {
     location: 'Languedoc',
     id: 'Domaine la Croix Chaptal',
+    products: [''],
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/croixChaptal.webp',
     web: 'http://www.lacroixchaptal.com/',
@@ -323,6 +333,7 @@ const data = [
   {
     location: 'Languedoc',
     id: 'Domaines Bru',
+    products: [''],
     color: ['Vins', 'Rouge'],
     logo: './img/logos/domaineBru.webp',
     web: 'https://www.domainemylenebru.fr/',
@@ -330,6 +341,7 @@ const data = [
   {
     location: 'Languedoc',
     id: 'Château de Fontenille',
+    products: [''],
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/chateauDeFontenille.webp',
     web: 'https://www.chateau-fontenille-boutique.com/',
@@ -337,6 +349,7 @@ const data = [
   {
     location: 'Languedoc',
     id: 'Anne de Joyeuse',
+    products: [''],
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/AnneDeJoyeuse.webp',
     web: 'https://www.annedejoyeuse.fr/',
@@ -344,6 +357,7 @@ const data = [
   {
     location: 'Loire',
     id: 'Levron & Vincenot',
+    products: [''],
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/LevronVincenot.webp',
     web: 'https://chateaudeparnay.fr/',
@@ -351,6 +365,7 @@ const data = [
   {
     location: 'Loire',
     id: 'Domaine Filliatreau',
+    products: [''],
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineFilliatreau.webp',
     web: 'https://www.domaine-filliatreau.com/',
@@ -366,6 +381,7 @@ const data = [
   {
     location: 'Loire',
     id: 'Domaine Pierre Luneau-Papin',
+    products: [''],
     color: ['Vins', 'Blanc'],
     logo: './img/logos/label-pierre-luneau-papin.webp',
     web: 'https://www.domaineluneaupapin.com/',
@@ -373,7 +389,7 @@ const data = [
   {
     location: 'Loire',
     id: 'Lorieux Alain & Pascal',
-    products: ['AOC St Nicolas de Bourgueil & Chinon'],
+    products: ['AOC St Nicolas de Bourgueil', 'Chinon'],
     color: ['Vins', 'Rosé', 'Rouge'],
     logo: './img/logos/logolorieux_1.webp',
     web: 'http://www.lorieux.fr/',
@@ -389,6 +405,7 @@ const data = [
   {
     location: 'Loire',
     id: 'Saget La Perrière',
+    products: [''],
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/sagetLaPerriere.webp',
     web: 'https://www.sagetlaperriere.fr/',
@@ -396,6 +413,7 @@ const data = [
   {
     location: 'Loire',
     id: 'Domaines Tatin',
+    products: [''],
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domainesTatin.webp',
     web: 'https://www.domaines-tatin.com/',
@@ -411,6 +429,7 @@ const data = [
   {
     location: 'Provence',
     id: 'Domaine de la Bégude',
+    products: [''],
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineDeLaBegude.webp',
     web: 'https://domainedelabegude.fr/',
@@ -418,6 +437,7 @@ const data = [
   {
     location: 'Provence',
     id: 'Domaine la Rouillère',
+    products: [''],
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineRouilliere.webp',
     web: 'https://www.domainelarouillere.com/',
@@ -425,7 +445,7 @@ const data = [
   {
     location: 'Rhône',
     id: 'Yann Chave',
-    products: ['Crozes Hermitage & Hermitage'],
+    products: ['Crozes Hermitage', 'Hermitage'],
     color: ['Vins', 'Rouge', 'Blanc'],
     logo: './img/logos/yannChaveLogo.webp',
     web: 'https://www.yannchave.com/',
@@ -433,6 +453,7 @@ const data = [
   {
     location: 'Rhône',
     id: 'Ames Complices',
+    products: [''],
     color: ['Vins', 'Rouge'],
     logo: './img/logos/AmesComplices.webp',
     web: '',
@@ -440,6 +461,7 @@ const data = [
   {
     location: 'Rhône',
     id: 'Domaine de Beaurenard',
+    products: [''],
     color: ['Vins', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineDeBeaurenard.webp',
     web: 'http://www.beaurenard.fr/',
@@ -463,6 +485,7 @@ const data = [
   {
     location: 'Rhône',
     id: 'Domaine Saint Amant',
+    products: [''],
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaine-saint-amant-logo.webp',
     web: 'https://www.domainesaintamant.com/',
@@ -470,6 +493,7 @@ const data = [
   {
     location: 'Rhône',
     id: 'Château de Nages',
+    products: [''],
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/chateaudeNages.webp',
     web: 'https://www.chateaudenages.com/fr/',
@@ -485,6 +509,7 @@ const data = [
   {
     location: 'Spiritueux',
     id: 'Dirum Dzama',
+    products: [''],
     color: ['Spiritueux'],
     logo: './img/logos/dirumDzama.webp',
     web: '',
@@ -492,6 +517,7 @@ const data = [
   {
     location: 'Spiritueux',
     id: 'Les Whiskies du Monde',
+    products: [''],
     color: ['Spiritueux'],
     logo: './img/logos/whiskiesDuMonde.webp',
     web: 'https://www.whiskiesdumonde.fr/fr/',
@@ -499,6 +525,7 @@ const data = [
   {
     location: 'Spiritueux',
     id: 'Pardela Spirits',
+    products: [''],
     color: ['Spiritueux'],
     logo: './img/logos/pardelaSpirits.webp',
     web: 'https://www.pardelaspirits.fr/',
@@ -506,6 +533,7 @@ const data = [
   {
     location: 'Spiritueux',
     id: 'Moon Harbour',
+    products: [''],
     color: ['Spiritueux'],
     logo: './img/logos/moonHarbor.webp',
     web: 'http://moonharbour.fr/',
@@ -513,6 +541,7 @@ const data = [
   {
     location: 'Spiritueux',
     id: 'Raymond Ragnaud',
+    products: [''],
     color: ['Spiritueux'],
     logo: './img/logos/raymondRagnaud.webp',
     web: '',
