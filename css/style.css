@@ -55,7 +55,6 @@ nav .logo {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 auto;
   max-width: 1300px;
 }
 
@@ -64,6 +63,7 @@ nav .logo a {
   max-height: 250px;
   align-self: flex-start;
   transition: scale 0.25s;
+  margin: 0 auto;
 }
 
 nav .logo a:hover {
@@ -174,8 +174,8 @@ nav .navigation a {
   opacity: 100%;
   z-index: 9;
   border: 2px solid var(--main);
-  padding-top: 3rem;
-  gap: 1rem;
+  padding: 3rem 2rem;
+  gap: 2rem;
 }
 
 .domainDetails .source {
@@ -188,8 +188,11 @@ nav .navigation a {
   max-height: 250px;
 }
 
+.domainDetails a {
+  max-width: 175px;
+}
+
 .domainDetails a img {
-  max-width: 200px;
   transition: scale 0.25s;
 }
 
@@ -335,6 +338,10 @@ footer p {
 @media screen and (min-width: 800px) {
   nav .logo form {
     display: block;
+  }
+
+  nav .logo a {
+    margin: 0;
   }
 
   nav .logo .links {
