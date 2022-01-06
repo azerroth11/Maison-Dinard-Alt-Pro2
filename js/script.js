@@ -47,6 +47,7 @@ navigationItems.forEach((a) => {
                     domainSpeech.innerText =
                       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis maiores quia repellat totam rem reprehenderit expedita et illum sit libero a, quasi nostrum, aperiam similique?'
                     const domainLink = domainDetailsDiv.appendChild(document.createElement('a'))
+                    domainLink.classList.add('domainLink')
                     domainLink.innerText = 'Site Web'
                     domainLink.href = 'javascript:;'
                   })
@@ -70,6 +71,41 @@ navigationItems.forEach((a) => {
       data.forEach((domain) => {
         if (domain.color.includes('Spiritueux')) {
           createDetails(domain, domainDetails)
+        }
+      })
+    } else if (a.innerText == 'Domaines') {
+      prepareDetails(rollableMenu)
+      const domainDetails = document.querySelector('.domainDetails')
+      data.forEach((domain) => {
+        createDetails(domain, domainDetails)
+      })
+    } else if (a.innerText == 'Appellations') {
+      prepareDetails(rollableMenu)
+      const domainDetails = document.querySelector('.domainDetails')
+      domainDetails.classList.add('appellations')
+      const productsArray = []
+      data.forEach((domain) => {
+        if (domain.products != undefined) {
+          domain.products.forEach((product) => {
+            productsArray.push(product)
+          })
+        }
+      })
+      productsArray.forEach((product) => {
+        if (product != domainDetails.lastChild.innerText) {
+          const details = domainDetails.appendChild(document.createElement('a'))
+          details.href = 'javascript:;'
+          details.innerText = product
+          details.addEventListener('click', () => {
+            domainDetails.classList.remove('appellations')
+            prepareDetails(rollableMenu)
+            data.forEach((domain) => {
+              console.log(domain.products)
+              if (domain.products == product) {
+                createDetails(domain, domainDetails)
+              }
+            })
+          })
         }
       })
     } else {
@@ -110,6 +146,7 @@ function createDetails(domain, domainDetails) {
     domainSpeech.innerText =
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis maiores quia repellat totam rem reprehenderit expedita et illum sit libero a, quasi nostrum, aperiam similique?'
     const domainLink = domainDetailsDiv.appendChild(document.createElement('a'))
+    domainLink.classList.add('domainLink')
     domainLink.innerText = 'Site Web'
     domainLink.href = 'javascript:;'
     const domainCloseBtn = domainDetailsDiv.appendChild(document.createElement('i'))
@@ -132,7 +169,7 @@ const data = [
   {
     location: 'BEAUJOLAIS',
     id: 'Château de Pizay',
-    products: ['Morgon, Beaujolais, Bourgogne'],
+    products: ['Morgon', 'Beaujolais', 'Bourgogne'],
     color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/chateauPizay.webp',
   },

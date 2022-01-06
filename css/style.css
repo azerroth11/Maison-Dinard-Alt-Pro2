@@ -171,6 +171,7 @@ nav .navigation a:hover {
   font-weight: bold;
 }
 
+.domainDetails a:hover,
 .rollableMenu div a:hover,
 .rollableMenu div a:focus {
   font-weight: bold;
@@ -202,6 +203,9 @@ nav .navigation a:hover {
   max-width: 200px;
 }
 
+.domainDetails a:hover {
+}
+
 .domainDetails div {
   display: grid;
   padding: 1rem;
@@ -216,7 +220,7 @@ nav .navigation a:hover {
   max-width: 50ch;
 }
 
-.domainDetails div a {
+.domainDetails .domainLink {
   padding: 0.75rem 2rem;
   margin: 2rem 0;
   width: fit-content;
@@ -226,7 +230,7 @@ nav .navigation a:hover {
   transition: scale 0.2s;
 }
 
-.domainDetails div a:hover,
+.domainDetails .domainLink:hover,
 .domainDetails i:hover {
   scale: 1.03;
   cursor: pointer;
@@ -238,6 +242,19 @@ nav .navigation a:hover {
   right: 1.5rem;
   font-size: 30px;
   transition: scale 0.2s;
+}
+
+.appellations {
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 390px;
+  padding: 2.5rem;
+}
+
+.appellations a {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 50%;
 }
 
 /* Logos */
@@ -311,6 +328,10 @@ nav .navigation a:hover {
     gap: 20%;
     text-transform: uppercase;
     padding: 0 1rem;
+  }
+
+  nav .logo .links a:hover {
+    font-weight: bold;
   }
 
   nav .navigation a {
