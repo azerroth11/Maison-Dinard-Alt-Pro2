@@ -4,13 +4,14 @@ const navigationItems = Array.from(navigation.children)
 navigationItems.forEach((a) => {
   a.addEventListener('click', () => {
     const rollableMenu = document.querySelector('.rollableMenu')
+    // Wine
     if (a.innerText == 'Vins' && rollableMenu.innerText == '') {
       const menuDivRegions = rollableMenu.appendChild(document.createElement('div'))
       menuDivRegions.classList.add('regions')
       const menuRegion = menuDivRegions.appendChild(document.createElement('p'))
       menuRegion.innerText = 'Régions'
       data.forEach((domain) => {
-        if (domain.color.includes('Vin')) {
+        if (domain.color.includes('Vins')) {
           if (
             menuDivRegions.innerText == '' ||
             menuDivRegions.lastChild.innerText != domain.location
@@ -36,6 +37,7 @@ navigationItems.forEach((a) => {
                   domainItem.addEventListener('click', () => {
                     prepareDetails(rollableMenu)
                     const domainDetails = document.querySelector('.domainDetails')
+                    source(domain, domainDetails)
                     const domainLogo = domainDetails.appendChild(document.createElement('img'))
                     domainLogo.src = domain.logo
                     const domainDetailsDiv = domainDetails.appendChild(
@@ -46,10 +48,12 @@ navigationItems.forEach((a) => {
                     const domainSpeech = domainDetailsDiv.appendChild(document.createElement('p'))
                     domainSpeech.innerText =
                       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis maiores quia repellat totam rem reprehenderit expedita et illum sit libero a, quasi nostrum, aperiam similique?'
-                    const domainLink = domainDetailsDiv.appendChild(document.createElement('a'))
-                    domainLink.classList.add('domainLink')
-                    domainLink.innerText = 'Site Web'
-                    domainLink.href = 'javascript:;'
+                    if (domain.web != '') {
+                      const domainLink = domainDetailsDiv.appendChild(document.createElement('a'))
+                      domainLink.classList.add('domainLink')
+                      domainLink.innerText = 'Site Web'
+                      domainLink.href = domain.web
+                    }
                   })
                 }
               })
@@ -57,7 +61,8 @@ navigationItems.forEach((a) => {
           }
         }
       })
-    } else if (a.innerText == 'Champagnes') {
+    } // Champagne
+    else if (a.innerText == 'Champagnes') {
       prepareDetails(rollableMenu)
       const domainDetails = document.querySelector('.domainDetails')
       data.forEach((domain) => {
@@ -65,7 +70,8 @@ navigationItems.forEach((a) => {
           createDetails(domain, domainDetails)
         }
       })
-    } else if (a.innerText == 'Spiritueux') {
+    } // Spiritueux
+    else if (a.innerText == 'Spiritueux') {
       prepareDetails(rollableMenu)
       const domainDetails = document.querySelector('.domainDetails')
       data.forEach((domain) => {
@@ -73,13 +79,15 @@ navigationItems.forEach((a) => {
           createDetails(domain, domainDetails)
         }
       })
-    } else if (a.innerText == 'Domaines') {
+    } // Domaines
+    else if (a.innerText == 'Domaines') {
       prepareDetails(rollableMenu)
       const domainDetails = document.querySelector('.domainDetails')
       data.forEach((domain) => {
         createDetails(domain, domainDetails)
       })
-    } else if (a.innerText == 'Appellations') {
+    } // Appellations
+    else if (a.innerText == 'Appellations') {
       prepareDetails(rollableMenu)
       const domainDetails = document.querySelector('.domainDetails')
       domainDetails.classList.add('appellations')
@@ -100,7 +108,6 @@ navigationItems.forEach((a) => {
             domainDetails.classList.remove('appellations')
             prepareDetails(rollableMenu)
             data.forEach((domain) => {
-              console.log(domain.products)
               if (domain.products == product) {
                 createDetails(domain, domainDetails)
               }
@@ -122,6 +129,7 @@ function prepareDetails(rollableMenu) {
     domainDetails.classList.add('domainDetails')
   }
   const domainDetails = document.querySelector('.domainDetails')
+  domainDetails.classList.remove('aboutDiv')
   domainDetails.textContent = ''
   const domainCloseBtn = domainDetails.appendChild(document.createElement('i'))
   domainCloseBtn.classList.add('fas', 'fa-times')
@@ -137,6 +145,7 @@ function createDetails(domain, domainDetails) {
   detailsLogo.src = domain.logo
   details.addEventListener('click', () => {
     domainDetails.textContent = ''
+    source(domain, domainDetails)
     const domainLogo = domainDetails.appendChild(document.createElement('img'))
     domainLogo.src = domain.logo
     const domainDetailsDiv = domainDetails.appendChild(document.createElement('div'))
@@ -145,10 +154,12 @@ function createDetails(domain, domainDetails) {
     const domainSpeech = domainDetailsDiv.appendChild(document.createElement('p'))
     domainSpeech.innerText =
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis maiores quia repellat totam rem reprehenderit expedita et illum sit libero a, quasi nostrum, aperiam similique?'
-    const domainLink = domainDetailsDiv.appendChild(document.createElement('a'))
-    domainLink.classList.add('domainLink')
-    domainLink.innerText = 'Site Web'
-    domainLink.href = 'javascript:;'
+    if (domain.web != '') {
+      const domainLink = domainDetailsDiv.appendChild(document.createElement('a'))
+      domainLink.classList.add('domainLink')
+      domainLink.innerText = 'Site Web'
+      domainLink.href = domain.web
+    }
     const domainCloseBtn = domainDetailsDiv.appendChild(document.createElement('i'))
     domainCloseBtn.classList.add('fas', 'fa-times')
     domainCloseBtn.addEventListener('click', () => {
@@ -157,305 +168,366 @@ function createDetails(domain, domainDetails) {
   })
 }
 
+function source(domain, domainDetails) {
+  const source = domainDetails.appendChild(document.createElement('div'))
+  source.classList.add('source')
+  const sourceDetails = source.appendChild(document.createElement('p'))
+  if (domain.products != undefined) {
+    if (domain.color[0] != domain.products) {
+      sourceDetails.innerText = `${domain.color[0]} > ${domain.products} > ${domain.id}`
+    } else {
+      sourceDetails.innerText = `${domain.color[0]} > ${domain.id}`
+    }
+  } else {
+    sourceDetails.innerText = `${domain.color[0]} > ${domain.id}`
+  }
+}
+
 // Data
 const data = [
   {
-    location: 'BEAUJOLAIS',
+    location: 'Beaujolais',
     id: 'Domaine Dubost',
     products: ['Vins de Bourgogne'],
-    color: ['Vin', 'Rouge'],
+    color: ['Vins', 'Rouge'],
     logo: '',
+    web: '',
   },
   {
-    location: 'BEAUJOLAIS',
+    location: 'Beaujolais',
     id: 'Château de Pizay',
     products: ['Morgon', 'Beaujolais', 'Bourgogne'],
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/chateauPizay.webp',
+    web: 'https://www.chateau-pizay.com/fr',
   },
   {
-    location: 'BORDEAUX',
+    location: 'Bordeaux',
     id: 'H. Cuvelier & Fils',
     products: ['Vins de Bordeaux'],
-    color: ['Vin', 'Rouge'],
+    color: ['Vins', 'Rouge'],
     logo: './img/logos/cuvelier.webp',
+    web: 'https://www.cuvelier-bordeaux.com/',
   },
   {
-    location: 'BORDEAUX',
+    location: 'Bordeaux',
     id: 'Domaines Select',
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: '',
+    web: '',
   },
   {
-    location: 'BORDEAUX',
+    location: 'Bordeaux',
     id: 'Gironde et Gascogne',
-    color: ['Rouge'],
+    color: ['Vins', 'Rouge'],
     logo: './img/logos/girondeEtGascogne.webp',
+    web: 'https://www.gironde-et-gascogne.com/',
   },
   {
-    location: 'BORDEAUX',
+    location: 'Bordeaux',
     id: 'Château Tourteau Chollet',
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/tourteauChollet.webp',
+    web: '',
   },
   {
-    location: 'BORDEAUX',
+    location: 'Bordeaux',
     id: 'Famille André Lurton',
     products: ['AOC Pessac Leognan'],
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/vignobles-andre-lurton.webp',
+    web: 'https://boutique.andrelurton.com/',
   },
   {
-    location: 'BOURGOGNE',
+    location: 'Bourgogne',
     id: 'Domaines Devillard',
     products: ['AOC Mercurey'],
-    color: ['Vin', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rouge', 'Blanc'],
     logo: './img/logos/domainesDevillard.webp',
+    web: 'http://www.domaines-devillard.com/',
   },
   {
-    location: 'BOURGOGNE',
+    location: 'Bourgogne',
     id: 'Domaine Nathalie & Gilles Fèvre',
     products: ['AOC Chablis'],
-    color: ['Vin', 'Blanc'],
+    color: ['Vins', 'Blanc'],
     logo: './img/logos/domaineFevre.webp',
+    web: 'https://www.nathalieetgillesfevre.com/',
   },
   {
-    location: 'BOURGOGNE',
+    location: 'Bourgogne',
     id: 'Maison René Lamy',
     products: ['Vins de Bourgogne'],
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/lamy-Pillot-logo.webp',
+    web: 'https://www.rene-lamy.fr/',
   },
   {
-    location: 'CHAMPAGNE',
+    location: 'Champagne',
     id: 'Billecart-Salmon',
     products: ['Champagne'],
     color: ['Champagne'],
     logo: './img/logos/billecart-salmon.webp',
+    web: 'https://www.champagne-billecart.fr/fr/verification-age-legal?locale=fr',
   },
   {
-    location: 'CHAMPAGNE',
+    location: 'Champagne',
     id: 'Champagne Drappier',
     products: ['Champagne'],
     color: ['Champagne'],
     logo: './img/logos/DrappierLogo.webp',
+    web: 'https://www.champagne-drappier.com/fr/',
   },
   {
-    location: 'CORSE',
+    location: 'Corse',
     id: 'Domaine Vico',
     products: ['Vins de Corse'],
-    color: ['Vin', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineVico.webp',
+    web: 'https://domainevico.com/',
   },
   {
-    location: 'LANGUEDOC',
+    location: 'Languedoc',
     id: 'Domaine de la Cendrillon',
     products: ['AOC Corbières'],
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineCendrillon.webp',
+    web: 'https://www.lacendrillon.fr/en/',
   },
   {
-    location: 'LANGUEDOC',
+    location: 'Languedoc',
     id: 'Domaine Grand Chemin',
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineGrandChemin.webp',
+    web: 'https://www.domainegrandchemin.fr/',
   },
   {
-    location: 'LANGUEDOC',
+    location: 'Languedoc',
     id: 'Domaine la Croix Chaptal',
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/croixChaptal.webp',
+    web: 'http://www.lacroixchaptal.com/',
   },
   {
-    location: 'LANGUEDOC',
+    location: 'Languedoc',
     id: 'Domaines Bru',
-    color: ['Vin', 'Rouge'],
+    color: ['Vins', 'Rouge'],
     logo: './img/logos/domaineBru.webp',
+    web: 'https://www.domainemylenebru.fr/',
   },
   {
-    location: 'LANGUEDOC',
+    location: 'Languedoc',
     id: 'Château de Fontenille',
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/chateauDeFontenille.webp',
+    web: 'https://www.chateau-fontenille-boutique.com/',
   },
   {
-    location: 'LANGUEDOC',
+    location: 'Languedoc',
     id: 'Anne de Joyeuse',
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/AnneDeJoyeuse.webp',
+    web: 'https://www.annedejoyeuse.fr/',
   },
   {
-    location: 'LOIRE',
+    location: 'Loire',
     id: 'Levron & Vincenot',
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/LevronVincenot.webp',
+    web: 'https://chateaudeparnay.fr/',
   },
   {
-    location: 'LOIRE',
+    location: 'Loire',
     id: 'Domaine Filliatreau',
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineFilliatreau.webp',
+    web: 'https://www.domaine-filliatreau.com/',
   },
   {
-    location: 'LOIRE',
+    location: 'Loire',
     id: 'Domaine Laporte',
     products: ['AOC Sancerre & Pouilly'],
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/DomaineLaporte.webp',
+    web: 'https://www.laporte-sancerre.com/',
   },
   {
-    location: 'LOIRE',
+    location: 'Loire',
     id: 'Domaine Pierre Luneau-Papin',
-    color: ['Vin', 'Blanc'],
+    color: ['Vins', 'Blanc'],
     logo: './img/logos/label-pierre-luneau-papin.webp',
+    web: 'https://www.domaineluneaupapin.com/',
   },
   {
-    location: 'LOIRE',
+    location: 'Loire',
     id: 'Lorieux Alain & Pascal',
     products: ['AOC St Nicolas de Bourgueil & Chinon'],
-    color: ['Vin', 'Rosé', 'Rouge'],
+    color: ['Vins', 'Rosé', 'Rouge'],
     logo: './img/logos/logolorieux_1.webp',
+    web: 'http://www.lorieux.fr/',
   },
   {
-    location: 'LOIRE',
+    location: 'Loire',
     id: 'Domaine Maison Père & Fils',
     products: ['AOC Cheverny'],
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineMaison.webp',
+    web: 'https://www.domainemaison.com/fr/index.php',
   },
   {
-    location: 'LOIRE',
+    location: 'Loire',
     id: 'Saget La Perrière',
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/sagetLaPerriere.webp',
+    web: 'https://www.sagetlaperriere.fr/',
   },
   {
-    location: 'LOIRE',
+    location: 'Loire',
     id: 'Domaines Tatin',
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domainesTatin.webp',
+    web: 'https://www.domaines-tatin.com/',
   },
   {
-    location: 'PROVENCE',
+    location: 'Provence',
     id: 'Château Pas du Cerf',
     products: ['AOC Cotes de Provence'],
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/chateauPasDuCerf.webp',
+    web: 'https://www.pasducerf.com/',
   },
   {
-    location: 'PROVENCE',
+    location: 'Provence',
     id: 'Domaine de la Bégude',
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineDeLaBegude.webp',
+    web: 'https://domainedelabegude.fr/',
   },
   {
-    location: 'PROVENCE',
+    location: 'Provence',
     id: 'Domaine la Rouillère',
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineRouilliere.webp',
+    web: 'https://www.domainelarouillere.com/',
   },
   {
-    location: 'RHONE',
+    location: 'Rhône',
     id: 'Yann Chave',
     products: ['Crozes Hermitage & Hermitage'],
-    color: ['Vin', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rouge', 'Blanc'],
     logo: './img/logos/yannChaveLogo.webp',
+    web: 'https://www.yannchave.com/',
   },
   {
-    location: 'RHONE',
+    location: 'Rhône',
     id: 'Ames Complices',
-    color: ['Rouge'],
+    color: ['Vins', 'Rouge'],
     logo: './img/logos/AmesComplices.webp',
+    web: '',
   },
   {
-    location: 'RHONE',
+    location: 'Rhône',
     id: 'Domaine de Beaurenard',
-    color: ['Vin', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineDeBeaurenard.webp',
+    web: 'http://www.beaurenard.fr/',
   },
   {
-    location: 'RHONE',
+    location: 'Rhône',
     id: 'Domaine de la Mordorée',
-    products: ['Vins du Rhone – AOC Tavel'],
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    products: ['Vins du Rhône – AOC Tavel'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineMordoree.webp',
+    web: 'https://www.domaine-mordoree.com/',
   },
   {
-    location: 'RHONE',
+    location: 'Rhône',
     id: 'Domaine de Montvac',
     products: ['AOC Vacqueyras & Gigondas'],
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineDeMontvac.webp',
+    web: 'https://domainedemontvac.fr/',
   },
   {
-    location: 'RHONE',
+    location: 'Rhône',
     id: 'Domaine Saint Amant',
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaine-saint-amant-logo.webp',
+    web: 'https://www.domainesaintamant.com/',
   },
   {
-    location: 'RHONE',
+    location: 'Rhône',
     id: 'Château de Nages',
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/chateaudeNages.webp',
+    web: 'https://www.chateaudenages.com/fr/',
   },
   {
-    location: 'RHONE',
+    location: 'Rhône',
     id: 'Domaine Lionel Faury',
-    products: ['Vins du Rhone – St Joseph'],
-    color: ['Vin', 'Rouge', 'Blanc'],
+    products: ['Vins du Rhône – St Joseph'],
+    color: ['Vins', 'Rouge', 'Blanc'],
     logo: './img/logos/LionelFaury.webp',
+    web: 'https://vins-lionel-faury.fr/',
   },
   {
-    location: 'SPIRITUEUX',
+    location: 'Spiritueux',
     id: 'Dirum Dzama',
     color: ['Spiritueux'],
     logo: './img/logos/dirumDzama.webp',
+    web: '',
   },
   {
-    location: 'SPIRITUEUX',
+    location: 'Spiritueux',
     id: 'Les Whiskies du Monde',
     color: ['Spiritueux'],
     logo: './img/logos/whiskiesDuMonde.webp',
+    web: 'https://www.whiskiesdumonde.fr/fr/',
   },
   {
-    location: 'SPIRITUEUX',
+    location: 'Spiritueux',
     id: 'Pardela Spirits',
     color: ['Spiritueux'],
     logo: './img/logos/pardelaSpirits.webp',
+    web: 'https://www.pardelaspirits.fr/',
   },
   {
-    location: 'SPIRITUEUX',
+    location: 'Spiritueux',
     id: 'Moon Harbour',
     color: ['Spiritueux'],
     logo: './img/logos/moonHarbor.webp',
+    web: 'http://moonharbour.fr/',
   },
   {
-    location: 'SPIRITUEUX',
+    location: 'Spiritueux',
     id: 'Raymond Ragnaud',
     color: ['Spiritueux'],
     logo: './img/logos/raymondRagnaud.webp',
+    web: '',
   },
   {
-    location: 'SUD-OUEST',
+    location: 'Sud-Ouest',
     id: 'Bisto de Nas',
     products: ['Vins du Sud Ouest'],
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/bistosDeNas.webp',
+    web: 'https://www.abistodenas.com/',
   },
   {
-    location: 'SUD-OUEST',
+    location: 'Sud-Ouest',
     id: 'Domaines Brumont',
     products: ['Vins du Sud Ouest'],
-    color: ['Vin', 'Rosé', 'Rouge', 'Blanc'],
+    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domainesBrumont.webp',
+    web: 'https://www.brumont.fr/',
   },
   {
-    location: 'SUD-OUEST',
+    location: 'Sud-Ouest',
     id: 'Domaine Tariquet',
     products: ['Vins de Cotes de Gascogne'],
-    color: ['Vin', 'Rosé', 'Blanc', 'Spiritueux'],
+    color: ['Vins', 'Rosé', 'Blanc', 'Spiritueux'],
     logo: './img/logos/domaineTariquet.webp',
+    web: 'http://www.tariquet.com/',
   },
 ]
 
@@ -474,4 +546,27 @@ const swiper = new Swiper('.swiper', {
     horizontalClass: 'swiper-pagination-horizontal',
     clickable: true,
   },
+})
+
+const about = document.querySelector('#about')
+about.addEventListener('click', () => {
+  const rollableMenu = document.querySelector('.rollableMenu')
+  prepareDetails(rollableMenu)
+  const domainDetails = document.querySelector('.domainDetails')
+  domainDetails.classList.add('aboutDiv')
+  const aboutIMG = domainDetails.appendChild(document.createElement('img'))
+  aboutIMG.src = './img/pierrick.jpg'
+  const aboutInnerDiv = domainDetails.appendChild(document.createElement('div'))
+  const aboutP1 = aboutInnerDiv.appendChild(document.createElement('p'))
+  aboutP1.innerHTML =
+    'Passionné par l’univers du vin et ayant une formation d’oenologie et de viticulture, <b>Pierrick Dinard</b> s’est installé en tant qu’agent commercial en vins, champagnes et spiritueux dans les Yvelines.'
+  const aboutP2 = aboutInnerDiv.appendChild(document.createElement('p'))
+  aboutP2.innerHTML =
+    'L’agence commerciale a été créée en 2014 afin de distribuer sur les Yvelines des domaines et <b>des vins sélectionnés pour leur caractère authentique</b>.'
+  const aboutP3 = aboutInnerDiv.appendChild(document.createElement('p'))
+  aboutP3.innerHTML =
+    'Il exerce son métier d’agent commercial avec passion pour répondre aux attentes des professionnels de la restauration et du goût ainsi que pour les cavistes indépendants dans les Yvelines et les Hauts de Seine. Son principal objectif est de <b>valoriser le travail des vignerons</b>.'
+  const aboutP4 = aboutInnerDiv.appendChild(document.createElement('p'))
+  aboutP4.innerHTML =
+    'Ainsi il met en valeur des cuvées qui expriment un terroir et la personnalité des vignerons qui les ont élaborées. Il a choisi de collaborer avec des <b>vignerons respectueux de leur terroir</b>, avec notamment un large gamme de vins bio, vignerons qu’il visite et qu’il suit, dans un esprit de réel partenariat et de partage de savoir-vivre.'
 })

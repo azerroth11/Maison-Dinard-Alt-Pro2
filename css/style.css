@@ -59,7 +59,7 @@ nav .logo {
   max-width: 1300px;
 }
 
-nav .logo img {
+nav .logo a {
   height: 125%;
   max-height: 250px;
   align-self: flex-start;
@@ -90,12 +90,6 @@ nav .navigation a {
   text-align: center;
   margin: 0 auto;
   flex: 0;
-}
-
-nav .navigation a:focus,
-nav .navigation a:hover {
-  background-color: var(--main);
-  color: #fff;
 }
 
 .l {
@@ -191,19 +185,22 @@ nav .navigation a:hover {
   opacity: 100%;
   z-index: 9;
   border: 2px solid var(--main);
+  padding-top: 3rem;
+  gap: 1rem;
 }
 
-.domainDetails img {
+.domainDetails .source {
+  position: absolute;
+  top: 0;
+}
+
+.domainDetails > img {
   max-width: 350px;
   max-height: 250px;
-  padding: 1rem;
 }
 
 .domainDetails a img {
   max-width: 200px;
-}
-
-.domainDetails a:hover {
 }
 
 .domainDetails div {
@@ -215,7 +212,7 @@ nav .navigation a:hover {
   color: var(--secondary);
 }
 
-.domainDetails div p {
+.domainDetails div p:not(.source p) {
   margin-top: 1rem;
   max-width: 50ch;
 }
@@ -280,7 +277,7 @@ nav .navigation a:hover {
 
 /* Comment */
 .comment {
-  max-width: min(90%, 50ch);
+  max-width: min(90%, 45ch);
   text-align: center;
   margin: 5rem auto;
   padding: 1rem 2rem;
@@ -289,31 +286,30 @@ nav .navigation a:hover {
 }
 
 /* About */
-.about {
-  display: none;
-  width: 100%;
-  background-color: #d3c3b0;
-  margin: 4rem auto 0 auto;
-  padding: 4rem 0;
+.aboutDiv {
+  border: none;
+  min-height: 600px;
 }
 
-.about > div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  margin: 1rem auto;
-  max-width: 950px;
+.aboutDiv > img {
+  max-height: 500px;
+  max-width: none;
 }
 
-.about img {
-  max-width: 325px;
+/* Footer */
+footer {
+  position: absolute;
+  bottom: 7.5px;
+  width: 100vw;
 }
 
-.about p {
-  max-width: 50ch;
-  color: #000;
-  padding: 0.75rem 0;
+footer a {
+  color: inherit;
+}
+
+footer p {
+  margin: 0 auto;
+  text-align: center;
 }
 
 @media screen and (min-width: 800px) {
@@ -338,12 +334,26 @@ nav .navigation a:hover {
     flex: 1;
   }
 
+  nav .navigation a:focus,
+  nav .navigation a:hover {
+    background-color: var(--main);
+    color: #fff;
+  }
+
   .l {
     display: block;
   }
 
   .hero {
     display: block;
+  }
+
+  .domainDetails {
+    padding-top: 0;
+  }
+
+  .appellations {
+    padding-top: 2.5rem;
   }
 
   .logos {
