@@ -76,6 +76,11 @@ navigationItems.forEach((a) => {
       }
       const domainDetails = document.querySelector('.domainDetails')
       domainDetails.textContent = ''
+      const domainCloseBtn = domainDetails.appendChild(document.createElement('i'))
+      domainCloseBtn.classList.add('fas', 'fa-times')
+      domainCloseBtn.addEventListener('click', () => {
+        domainDetails.remove()
+      })
       data.forEach((domain) => {
         if (domain.color.includes('Champagne')) {
           const champagneDetails = domainDetails.appendChild(document.createElement('a'))
