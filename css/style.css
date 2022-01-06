@@ -207,6 +207,7 @@ nav .navigation a {
 
 .domainDetails div h1 {
   color: var(--secondary);
+  text-align: center;
 }
 
 .domainDetails div p:not(.source p, i p) {
@@ -216,7 +217,7 @@ nav .navigation a {
 
 .domainDetails .domainLink {
   padding: 0.75rem 2rem;
-  margin: 2rem 0;
+  margin: 2rem auto;
   width: fit-content;
   background-color: var(--secondary);
   color: #fff;
@@ -232,7 +233,7 @@ nav .navigation a {
 
 .domainDetails i {
   position: absolute;
-  top: 2rem;
+  top: 10%;
   right: 1.5rem;
   font-size: 30px;
   transition: scale 0.2s;
@@ -375,9 +376,9 @@ footer p {
     display: block;
   }
 
-  .domainDetails {
+  /* .domainDetails {
     padding-top: 0;
-  }
+  } */
 
   .appellations {
     padding-top: 2.5rem;
