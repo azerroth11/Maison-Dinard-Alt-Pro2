@@ -63,6 +63,11 @@ nav .logo a {
   height: 125%;
   max-height: 250px;
   align-self: flex-start;
+  transition: scale 0.25s;
+}
+
+nav .logo a:hover {
+  scale: 1.01;
 }
 
 nav .logo .links {
@@ -71,7 +76,6 @@ nav .logo .links {
 
 nav .navigation {
   font-size: 1.2rem;
-  background-color: #fff;
   border-top: 2px solid grey;
   border-bottom: 2px solid grey;
   display: flex;
@@ -85,7 +89,6 @@ nav .navigation {
 
 nav .navigation a {
   transition: background-color 0.25s;
-  background-color: #fff;
   padding: 1rem 0;
   text-align: center;
   margin: 0 auto;
@@ -100,14 +103,7 @@ nav .navigation a {
 .hero {
   position: relative;
   max-width: 1300px;
-  margin: 2rem auto;
-}
-
-.hero,
-.swiper,
-.swiper-wrapper,
-.swiper img {
-  min-height: 390px;
+  margin: 2rem auto 1rem auto;
 }
 
 .swiper img {
@@ -116,18 +112,7 @@ nav .navigation a {
   width: 100%;
 }
 
-.swiper div a h1 {
-  position: absolute;
-  top: 50%;
-  left: 80%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  text-align: center;
-  text-transform: uppercase;
-  line-height: 3rem;
-}
-
-.swiper div a:first-child h1 {
+.swiper div p {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -135,7 +120,11 @@ nav .navigation a {
   color: #fff;
   text-align: center;
   text-transform: uppercase;
-  line-height: 3rem;
+  font-size: 1.25rem;
+  line-height: 2.5rem;
+  border: 2px solid #fff;
+  max-width: 35ch;
+  padding: 2rem 2rem;
 }
 
 /* RollableMenu */
@@ -212,7 +201,7 @@ nav .navigation a {
   color: var(--secondary);
 }
 
-.domainDetails div p:not(.source p) {
+.domainDetails div p:not(.source p, i p) {
   margin-top: 1rem;
   max-width: 50ch;
 }
@@ -239,6 +228,15 @@ nav .navigation a {
   right: 1.5rem;
   font-size: 30px;
   transition: scale 0.2s;
+}
+
+.domainDetails i p {
+  transform: rotate(90deg);
+  position: absolute;
+  top: 175%;
+  left: -100%;
+  font-weight: 300;
+  font-size: 1.5rem;
 }
 
 .appellations {
@@ -275,16 +273,6 @@ nav .navigation a {
   filter: saturate(1) opacity(100%);
 }
 
-/* Comment */
-.comment {
-  max-width: min(90%, 45ch);
-  text-align: center;
-  margin: 5rem auto;
-  padding: 1rem 2rem;
-  border: 2px solid rgba(31, 56, 78, 0.25);
-  color: rgba(0, 0, 0, 0.75);
-}
-
 /* About */
 .aboutDiv {
   border: none;
@@ -297,8 +285,25 @@ nav .navigation a {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
+.aboutDiv a {
+  padding: 0.75rem 2rem;
+  width: fit-content;
+  background-color: var(--secondary);
+  color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  transition: scale 0.2s;
+  margin: 2rem auto;
+}
+
+.aboutDiv a:hover {
+  font-weight: inherit;
+  scale: 1.02;
+}
+
 /* Footer */
 footer {
+  position: fixed;
+  bottom: 1rem;
   width: 100vw;
 }
 

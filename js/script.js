@@ -137,6 +137,8 @@ function prepareDetails(rollableMenu) {
   domainCloseBtn.addEventListener('click', () => {
     domainDetails.remove()
   })
+  const retour = domainCloseBtn.appendChild(document.createElement('p'))
+  retour.innerText = 'Retour'
 }
 
 function createDetails(domain, domainDetails) {
@@ -160,12 +162,15 @@ function createDetails(domain, domainDetails) {
       domainLink.classList.add('domainLink')
       domainLink.innerText = 'Site Web'
       domainLink.href = domain.web
+      domainLink.target = '_blank'
     }
     const domainCloseBtn = domainDetailsDiv.appendChild(document.createElement('i'))
     domainCloseBtn.classList.add('fas', 'fa-times')
     domainCloseBtn.addEventListener('click', () => {
       domainDetails.remove()
     })
+    const retour = domainCloseBtn.appendChild(document.createElement('p'))
+    retour.innerText = 'Retour'
   })
 }
 
@@ -175,7 +180,13 @@ function source(domain, domainDetails) {
   const sourceDetails = source.appendChild(document.createElement('p'))
   if (domain.products != undefined) {
     if (domain.color[0] != domain.products) {
-      sourceDetails.innerText = `${domain.color[0]} > ${domain.products} > ${domain.id}`
+      if (domain.id == 'Domaine Tariquet') {
+        sourceDetails.innerText = `${domain.color[0]} > ${domain.products} & ${
+          domain.color[domain.color.length - 1]
+        } > ${domain.id}`
+      } else {
+        sourceDetails.innerText = `${domain.color[0]} > ${domain.products} > ${domain.id}`
+      }
     } else {
       sourceDetails.innerText = `${domain.color[0]} > ${domain.id}`
     }
@@ -535,8 +546,9 @@ const data = [
 const swiper = new Swiper('.swiper', {
   direction: 'horizontal',
   slidesPerView: 'auto',
+  loop: true,
   autoplay: {
-    delay: 2500,
+    delay: 3500,
   },
   speed: 1000,
   centeredSlides: true,
@@ -570,4 +582,8 @@ about.addEventListener('click', () => {
   const aboutP4 = aboutInnerDiv.appendChild(document.createElement('p'))
   aboutP4.innerHTML =
     'Ainsi il met en valeur des cuvées qui expriment un terroir et la personnalité des vignerons qui les ont élaborées. Il a choisi de collaborer avec des <b>vignerons respectueux de leur terroir</b>, avec notamment un large gamme de vins bio, vignerons qu’il visite et qu’il suit, dans un esprit de réel partenariat et de partage de savoir-vivre.'
+  const contact = aboutInnerDiv.appendChild(document.createElement('a'))
+  contact.innerText = 'Contactez-nous'
+  contact.href = 'mailto:pierrick.dinard@maisondinard.fr'
+  contact.addEventListener('click', () => {})
 })
