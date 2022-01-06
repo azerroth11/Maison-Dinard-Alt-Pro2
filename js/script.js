@@ -34,14 +34,8 @@ navigationItems.forEach((a) => {
                   domainItem.href = 'javascript:;'
                   domainItem.innerText = domain.id
                   domainItem.addEventListener('click', () => {
-                    rollableMenu.innerText = ''
-                    const hero = document.querySelector('.hero')
-                    if (hero.lastElementChild.classList.contains('swiper-pagination')) {
-                      const domainDetails = hero.appendChild(document.createElement('div'))
-                      domainDetails.classList.add('domainDetails')
-                    }
+                    prepareDetails(rollableMenu)
                     const domainDetails = document.querySelector('.domainDetails')
-                    domainDetails.textContent = ''
                     const domainLogo = domainDetails.appendChild(document.createElement('img'))
                     domainLogo.src = domain.logo
                     const domainDetailsDiv = domainDetails.appendChild(
@@ -55,11 +49,6 @@ navigationItems.forEach((a) => {
                     const domainLink = domainDetailsDiv.appendChild(document.createElement('a'))
                     domainLink.innerText = 'Site Web'
                     domainLink.href = 'javascript:;'
-                    const domainCloseBtn = domainDetailsDiv.appendChild(document.createElement('i'))
-                    domainCloseBtn.classList.add('fas', 'fa-times')
-                    domainCloseBtn.addEventListener('click', () => {
-                      domainDetails.remove()
-                    })
                   })
                 }
               })
@@ -68,53 +57,68 @@ navigationItems.forEach((a) => {
         }
       })
     } else if (a.innerText == 'Champagnes') {
-      rollableMenu.innerText = ''
-      const hero = document.querySelector('.hero')
-      if (hero.lastElementChild.classList.contains('swiper-pagination')) {
-        const domainDetails = hero.appendChild(document.createElement('div'))
-        domainDetails.classList.add('domainDetails')
-      }
+      prepareDetails(rollableMenu)
       const domainDetails = document.querySelector('.domainDetails')
-      domainDetails.textContent = ''
-      const domainCloseBtn = domainDetails.appendChild(document.createElement('i'))
-      domainCloseBtn.classList.add('fas', 'fa-times')
-      domainCloseBtn.addEventListener('click', () => {
-        domainDetails.remove()
-      })
       data.forEach((domain) => {
         if (domain.color.includes('Champagne')) {
-          const champagneDetails = domainDetails.appendChild(document.createElement('a'))
-          champagneDetails.href = 'jaavscript:;'
-          const champagneLogo = champagneDetails.appendChild(document.createElement('img'))
-          champagneLogo.src = domain.logo
-          console.log(domain.id)
-          champagneDetails.addEventListener('click', () => {
-            domainDetails.textContent = ''
-            const domainLogo = domainDetails.appendChild(document.createElement('img'))
-            domainLogo.src = domain.logo
-            const domainDetailsDiv = domainDetails.appendChild(document.createElement('div'))
-            const domainName = domainDetailsDiv.appendChild(document.createElement('h1'))
-            domainName.innerText = domain.id
-            const domainSpeech = domainDetailsDiv.appendChild(document.createElement('p'))
-            domainSpeech.innerText =
-              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis maiores quia repellat totam rem reprehenderit expedita et illum sit libero a, quasi nostrum, aperiam similique?'
-            const domainLink = domainDetailsDiv.appendChild(document.createElement('a'))
-            domainLink.innerText = 'Site Web'
-            domainLink.href = 'javascript:;'
-            const domainCloseBtn = domainDetailsDiv.appendChild(document.createElement('i'))
-            domainCloseBtn.classList.add('fas', 'fa-times')
-            domainCloseBtn.addEventListener('click', () => {
-              domainDetails.remove()
-            })
-          })
+          createDetails(domain, domainDetails)
+        }
+      })
+    } else if (a.innerText == 'Spiritueux') {
+      prepareDetails(rollableMenu)
+      const domainDetails = document.querySelector('.domainDetails')
+      data.forEach((domain) => {
+        if (domain.color.includes('Spiritueux')) {
+          createDetails(domain, domainDetails)
         }
       })
     } else {
-      console.log('Empty')
       rollableMenu.innerText = ''
     }
   })
 })
+
+function prepareDetails(rollableMenu) {
+  rollableMenu.innerText = ''
+  const hero = document.querySelector('.hero')
+  if (hero.lastElementChild.classList.contains('swiper-pagination')) {
+    const domainDetails = hero.appendChild(document.createElement('div'))
+    domainDetails.classList.add('domainDetails')
+  }
+  const domainDetails = document.querySelector('.domainDetails')
+  domainDetails.textContent = ''
+  const domainCloseBtn = domainDetails.appendChild(document.createElement('i'))
+  domainCloseBtn.classList.add('fas', 'fa-times')
+  domainCloseBtn.addEventListener('click', () => {
+    domainDetails.remove()
+  })
+}
+
+function createDetails(domain, domainDetails) {
+  const details = domainDetails.appendChild(document.createElement('a'))
+  details.href = 'javascript:;'
+  const detailsLogo = details.appendChild(document.createElement('img'))
+  detailsLogo.src = domain.logo
+  details.addEventListener('click', () => {
+    domainDetails.textContent = ''
+    const domainLogo = domainDetails.appendChild(document.createElement('img'))
+    domainLogo.src = domain.logo
+    const domainDetailsDiv = domainDetails.appendChild(document.createElement('div'))
+    const domainName = domainDetailsDiv.appendChild(document.createElement('h1'))
+    domainName.innerText = domain.id
+    const domainSpeech = domainDetailsDiv.appendChild(document.createElement('p'))
+    domainSpeech.innerText =
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis maiores quia repellat totam rem reprehenderit expedita et illum sit libero a, quasi nostrum, aperiam similique?'
+    const domainLink = domainDetailsDiv.appendChild(document.createElement('a'))
+    domainLink.innerText = 'Site Web'
+    domainLink.href = 'javascript:;'
+    const domainCloseBtn = domainDetailsDiv.appendChild(document.createElement('i'))
+    domainCloseBtn.classList.add('fas', 'fa-times')
+    domainCloseBtn.addEventListener('click', () => {
+      domainDetails.remove()
+    })
+  })
+}
 
 // Data
 const data = [
