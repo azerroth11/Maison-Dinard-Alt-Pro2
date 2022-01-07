@@ -137,10 +137,23 @@ function orderArray(orderedArray, domainDetails) {
   orderedArray = [...new Set(orderedArray)]
   orderedArray.sort()
   domainDetails.classList.add('list')
-  orderedArray.forEach((orderedDomain) => {
-    const domainName = domainDetails.appendChild(document.createElement('a'))
-    domainName.href = 'javascript:;'
-    domainName.innerText = orderedDomain
+  orderedArray.forEach((orderedItem) => {
+    const uniqueItem = domainDetails.appendChild(document.createElement('a'))
+    uniqueItem.href = 'javascript:;'
+    uniqueItem.innerText = orderedItem
+    uniqueItem.addEventListener('click', () => {
+      data.forEach((domain) => {
+        if (uniqueItem.innerText === domain.id) {
+          console.log(domain.id)
+        } else {
+          domain.products.forEach((product) => {
+            if (product === uniqueItem.innerText) {
+              console.log(product)
+            }
+          })
+        }
+      })
+    })
   })
 }
 
@@ -152,7 +165,7 @@ function prepareDetails(rollableMenu) {
     domainDetails.classList.add('domainDetails')
   }
   const domainDetails = document.querySelector('.domainDetails')
-  domainDetails.classList.remove('list')
+  domainDetails.classList.remove('appellations')
   domainDetails.classList.remove('aboutDiv')
   domainDetails.textContent = ''
   const domainCloseBtn = domainDetails.appendChild(document.createElement('i'))
