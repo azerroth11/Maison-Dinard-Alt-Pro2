@@ -151,7 +151,7 @@ nav .navigation a {
   font-weight: bold;
 }
 
-.domainDetails a:hover:not(.webSiteBTN),
+.domainDetails a:hover:not(.webSiteBTN, .aboutDiv a),
 .rollableMenu div a:hover,
 .rollableMenu div a:focus {
   font-weight: bold;
@@ -344,7 +344,6 @@ nav .navigation a {
 }
 
 .aboutDiv a:hover {
-  font-weight: inherit;
   scale: 1.02;
 }
 
