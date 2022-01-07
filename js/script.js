@@ -67,7 +67,11 @@ navigationItems.forEach((a) => {
       const domainDetails = document.querySelector('.domainDetails')
       data.forEach((domain) => {
         if (domain.color.includes('Champagne')) {
-          createDetails(domain, domainDetails)
+          const details = domainDetails.appendChild(document.createElement('a'))
+          details.href = 'javascript:;'
+          const detailsLogo = details.appendChild(document.createElement('img'))
+          detailsLogo.src = domain.logo
+          createDetails(domain, domainDetails, details)
         }
       })
     } // Spiritueux
@@ -76,7 +80,11 @@ navigationItems.forEach((a) => {
       const domainDetails = document.querySelector('.domainDetails')
       data.forEach((domain) => {
         if (domain.color.includes('Spiritueux')) {
-          createDetails(domain, domainDetails)
+          const details = domainDetails.appendChild(document.createElement('a'))
+          details.href = 'javascript:;'
+          const detailsLogo = details.appendChild(document.createElement('img'))
+          detailsLogo.src = domain.logo
+          createDetails(domain, domainDetails, details)
         }
       })
     } // Domaines
@@ -144,7 +152,8 @@ function orderArray(orderedArray, domainDetails) {
     uniqueItem.addEventListener('click', () => {
       data.forEach((domain) => {
         if (uniqueItem.innerText === domain.id) {
-          console.log(domain.id)
+          details = uniqueItem
+          createDetails(domain, domainDetails, details)
         } else {
           domain.products.forEach((product) => {
             if (product === uniqueItem.innerText) {
@@ -152,7 +161,8 @@ function orderArray(orderedArray, domainDetails) {
             }
           })
         }
-      })
+      }),
+        uniqueItem.click()
     })
   })
 }
@@ -177,12 +187,9 @@ function prepareDetails(rollableMenu) {
   retour.innerText = 'Retour'
 }
 
-function createDetails(domain, domainDetails) {
-  const details = domainDetails.appendChild(document.createElement('a'))
-  details.href = 'javascript:;'
-  const detailsLogo = details.appendChild(document.createElement('img'))
-  detailsLogo.src = domain.logo
+function createDetails(domain, domainDetails, details) {
   details.addEventListener('click', () => {
+    domainDetails.classList.remove('list')
     domainDetails.textContent = ''
     source(domain, domainDetails)
     const domainLogo = domainDetails.appendChild(document.createElement('img'))
