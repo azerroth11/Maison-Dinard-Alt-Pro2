@@ -42,7 +42,6 @@ nav {
   max-width: 1300px;
   margin: 0 auto;
   text-align: center;
-  position: sticky;
   top: 0;
   z-index: 100;
   background-color: #fff;
@@ -215,7 +214,7 @@ nav .navigation a {
 
 .domainDetails .domainLink {
   padding: 0.75rem 2rem;
-  margin: 2rem auto;
+  margin: 2rem auto 0 auto;
   width: fit-content;
   background-color: var(--secondary);
   color: #fff;
