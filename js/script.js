@@ -174,7 +174,7 @@ function prepareDetails(rollableMenu) {
     domainDetails.remove()
   })
   const retour = domainCloseBtn.appendChild(document.createElement('p'))
-  retour.innerText = 'Retour'
+  // retour.innerText = 'Retour'
 }
 
 function addClickEvent(domain, details) {
@@ -197,13 +197,6 @@ function addClickEvent(domain, details) {
       domainLink.href = domain.web
       domainLink.target = '_blank'
     }
-    const domainCloseBtn = domainDetailsDiv.appendChild(document.createElement('i'))
-    domainCloseBtn.classList.add('fas', 'fa-times')
-    domainCloseBtn.addEventListener('click', () => {
-      domainDetails.remove()
-    })
-    const retour = domainCloseBtn.appendChild(document.createElement('p'))
-    retour.innerText = 'Retour'
   })
 }
 

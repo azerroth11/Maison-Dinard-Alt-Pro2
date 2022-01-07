@@ -151,7 +151,7 @@ nav .navigation a {
   font-weight: bold;
 }
 
-.domainDetails a:hover,
+.domainDetails a:hover:not(.webSiteBTN),
 .rollableMenu div a:hover,
 .rollableMenu div a:focus {
   font-weight: bold;
@@ -223,10 +223,13 @@ nav .navigation a {
   transition: scale 0.2s;
 }
 
-.domainDetails .webSiteBTN:hover,
-.domainDetails i:hover {
+.domainDetails .webSiteBTN:hover {
   scale: 1.03;
+}
+
+.domainDetails i:hover {
   cursor: pointer;
+  text-shadow: 0 0 2px #000;
 }
 
 .domainDetails i {
@@ -372,12 +375,13 @@ footer p {
   }
 
   nav .logo .links {
-    width: 30%;
     display: flex;
-    justify-content: flex-end;
-    gap: 20%;
+    justify-content: space-evenly;
     text-transform: uppercase;
-    padding: 0 1rem;
+  }
+
+  nav .logo .links a {
+    width: 125px;
   }
 
   nav .logo .links a:hover {
