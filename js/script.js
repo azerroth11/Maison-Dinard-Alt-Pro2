@@ -95,7 +95,7 @@ navigationItems.forEach((a) => {
         orderedArray.push(domain.id)
       })
       const domainDetails = document.querySelector('.domainDetails')
-      orderArray(orderedArray, domainDetails)
+      orderArray(orderedArray, domainDetails, rollableMenu)
       const divTitle = domainDetails.appendChild(document.createElement('p'))
       divTitle.classList.add('choice')
       divTitle.innerText = 'Liste des Domaines: A-Z'
@@ -109,7 +109,7 @@ navigationItems.forEach((a) => {
           orderedArray.push(product)
         })
       })
-      orderArray(orderedArray, domainDetails)
+      orderArray(orderedArray, domainDetails, rollableMenu)
       const divTitle = domainDetails.appendChild(document.createElement('p'))
       divTitle.classList.add('choice')
       divTitle.innerText = 'Liste des Appellations: A-Z'
@@ -140,7 +140,7 @@ navigationItems.forEach((a) => {
   })
 })
 
-function orderArray(orderedArray, domainDetails) {
+function orderArray(orderedArray, domainDetails, rollableMenu) {
   orderedArray = orderedArray.filter((empty) => empty != '')
   orderedArray = [...new Set(orderedArray)]
   orderedArray.sort()
@@ -150,19 +150,29 @@ function orderArray(orderedArray, domainDetails) {
     uniqueItem.href = 'javascript:;'
     uniqueItem.innerText = orderedItem
     uniqueItem.addEventListener('click', () => {
+      prepareDetails(rollableMenu)
       data.forEach((domain) => {
         if (uniqueItem.innerText === domain.id) {
           details = uniqueItem
           createDetails(domain, domainDetails, details)
         } else {
+          domainDetails.classList.remove('list')
           domain.products.forEach((product) => {
-            if (product === uniqueItem.innerText) {
-              console.log(product)
+            if (uniqueItem.innerText === product) {
+              const details = domainDetails.appendChild(document.createElement('a'))
+              details.href = 'javascript:;'
+              const detailsLogo = details.appendChild(document.createElement('img'))
+              detailsLogo.src = domain.logo
+              createDetails(domain, domainDetails, details)
             }
           })
         }
       }),
         uniqueItem.click()
+      if (domainDetails.children.length == 2) {
+        domainDetails.lastElementChild.click()
+        console.log('true')
+      }
     })
   })
 }
