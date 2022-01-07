@@ -212,7 +212,7 @@ nav .navigation a {
   max-width: 50ch;
 }
 
-.domainDetails .domainLink {
+.domainDetails .webSiteBTN {
   padding: 0.75rem 2rem;
   margin: 2rem auto 0 auto;
   width: fit-content;
@@ -222,7 +222,7 @@ nav .navigation a {
   transition: scale 0.2s;
 }
 
-.domainDetails .domainLink:hover,
+.domainDetails .webSiteBTN:hover,
 .domainDetails i:hover {
   scale: 1.03;
   cursor: pointer;
@@ -267,7 +267,7 @@ nav .navigation a {
 }
 
 /* Logos */
-.logos {
+.logosDiv {
   display: none;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -276,14 +276,14 @@ nav .navigation a {
   max-width: 1300px;
 }
 
-.logos img {
+.logosDiv img {
   object-fit: contain;
   max-height: 100px;
   max-width: 150px;
   filter: saturate(0) opacity(50%);
 }
 
-.logos img:hover {
+.logosDiv img:hover {
   filter: saturate(1) opacity(100%);
 }
 
@@ -302,6 +302,7 @@ nav .navigation a {
 .aboutDiv a {
   padding: 0.75rem 2rem;
   width: fit-content;
+  max-width: none;
   background-color: var(--secondary);
   color: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
@@ -379,7 +380,7 @@ footer p {
     height: 100%;
   }
 
-  .logos {
+  .logosDiv {
     display: flex;
   }
 

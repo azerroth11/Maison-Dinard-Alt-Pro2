@@ -113,27 +113,6 @@ navigationItems.forEach((a) => {
       const divTitle = domainDetails.appendChild(document.createElement('p'))
       divTitle.classList.add('choice')
       divTitle.innerText = 'Liste des Appellations: A-Z'
-      // orderedArray.forEach((product) => {
-      //   if (product != domainDetails.lastChild.innerText) {
-      //     const details = domainDetails.appendChild(document.createElement('a'))
-      //     details.href = 'javascript:;'
-      //     details.innerText = product
-      //     details.addEventListener('click', () => {
-      //       domainDetails.classList.remove('list')
-      //       prepareDetails(rollableMenu)
-      //       const choice = domainDetails.appendChild(document.createElement('p'))
-      //       choice.classList.add('choice')
-      //       choice.innerText = 'Choisissez un domaine :'
-      //       data.forEach((domain) => {
-      //         domain.products.forEach((item) => {
-      //           if (item === product) {
-      //             createDetails(domain, domainDetails)
-      //           }
-      //         })
-      //       })
-      //     })
-      //   }
-      // })
     } else {
       rollableMenu.innerText = ''
     }
@@ -156,7 +135,6 @@ function orderArray(orderedArray, domainDetails, rollableMenu) {
           details = uniqueItem
           createDetails(domain, domainDetails, details)
         } else {
-          domainDetails.classList.remove('list')
           domain.products.forEach((product) => {
             if (uniqueItem.innerText === product) {
               const details = domainDetails.appendChild(document.createElement('a'))
@@ -171,7 +149,6 @@ function orderArray(orderedArray, domainDetails, rollableMenu) {
         uniqueItem.click()
       if (domainDetails.children.length == 2) {
         domainDetails.lastElementChild.click()
-        console.log('true')
       }
     })
   })
@@ -187,6 +164,7 @@ function prepareDetails(rollableMenu) {
   const domainDetails = document.querySelector('.domainDetails')
   domainDetails.classList.remove('appellations')
   domainDetails.classList.remove('aboutDiv')
+  domainDetails.classList.remove('list')
   domainDetails.textContent = ''
   const domainCloseBtn = domainDetails.appendChild(document.createElement('i'))
   domainCloseBtn.classList.add('fas', 'fa-times')
@@ -212,7 +190,7 @@ function createDetails(domain, domainDetails, details) {
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis maiores quia repellat totam rem reprehenderit expedita et illum sit libero a, quasi nostrum, aperiam similique?'
     if (domain.web != '') {
       const domainLink = domainDetailsDiv.appendChild(document.createElement('a'))
-      domainLink.classList.add('domainLink')
+      domainLink.classList.add('webSiteBTN')
       domainLink.innerText = 'Site Web'
       domainLink.href = domain.web
       domainLink.target = '_blank'
@@ -663,4 +641,28 @@ about.addEventListener('click', () => {
   contact.innerText = 'Contactez-nous'
   contact.href = 'mailto:pierrick.dinard@maisondinard.fr'
   contact.addEventListener('click', () => {})
+})
+
+// Logos Div logic
+const domainsArray = []
+data.forEach((domain) => {
+  domainsArray.push(domain.id)
+})
+const popularLogos = [
+  data[domainsArray.indexOf('Domaines Brumont')],
+  data[domainsArray.indexOf('Domaine Tariquet')],
+  data[domainsArray.indexOf('Champagne Drappier')],
+  data[domainsArray.indexOf('Billecart-Salmon')],
+  data[domainsArray.indexOf('Domaine de la Cendrillon')],
+  data[domainsArray.indexOf('H. Cuvelier & Fils')],
+  data[domainsArray.indexOf('Château de Nages')],
+]
+
+const body = document.querySelector('body')
+const footer = document.querySelector('footer')
+const logosDiv = body.insertBefore(document.createElement('div'), footer)
+logosDiv.classList.add('logosDiv')
+popularLogos.forEach((domain) => {
+  const logoIMG = logosDiv.appendChild(document.createElement('img'))
+  logoIMG.src = domain.logo
 })
