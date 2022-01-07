@@ -82,49 +82,67 @@ navigationItems.forEach((a) => {
     } // Domaines
     else if (a.innerText == 'Domaines') {
       prepareDetails(rollableMenu)
-      const domainDetails = document.querySelector('.domainDetails')
+      const orderedArray = []
       data.forEach((domain) => {
-        createDetails(domain, domainDetails)
+        orderedArray.push(domain.id)
       })
+      const domainDetails = document.querySelector('.domainDetails')
+      orderArray(orderedArray, domainDetails)
+      const divTitle = domainDetails.appendChild(document.createElement('p'))
+      divTitle.classList.add('choice')
+      divTitle.innerText = 'Liste des Domaines: A-Z'
     } // Appellations
     else if (a.innerText == 'Appellations') {
       prepareDetails(rollableMenu)
       const domainDetails = document.querySelector('.domainDetails')
-      domainDetails.classList.add('appellations')
-      const productsArray = []
+      const orderedArray = []
       data.forEach((domain) => {
-        if (domain.products != undefined) {
-          domain.products.forEach((product) => {
-            productsArray.push(product)
-          })
-        }
+        domain.products.forEach((product) => {
+          orderedArray.push(product)
+        })
       })
-      productsArray.forEach((product) => {
-        if (product != domainDetails.lastChild.innerText) {
-          const details = domainDetails.appendChild(document.createElement('a'))
-          details.href = 'javascript:;'
-          details.innerText = product
-          details.addEventListener('click', () => {
-            domainDetails.classList.remove('appellations')
-            prepareDetails(rollableMenu)
-            const choice = domainDetails.appendChild(document.createElement('p'))
-            choice.classList.add('choice')
-            choice.innerText = 'Choisissez un domaine :'
-            data.forEach((domain) => {
-              domain.products.forEach((item) => {
-                if (item === product) {
-                  createDetails(domain, domainDetails)
-                }
-              })
-            })
-          })
-        }
-      })
+      orderArray(orderedArray, domainDetails)
+      const divTitle = domainDetails.appendChild(document.createElement('p'))
+      divTitle.classList.add('choice')
+      divTitle.innerText = 'Liste des Appellations: A-Z'
+      // orderedArray.forEach((product) => {
+      //   if (product != domainDetails.lastChild.innerText) {
+      //     const details = domainDetails.appendChild(document.createElement('a'))
+      //     details.href = 'javascript:;'
+      //     details.innerText = product
+      //     details.addEventListener('click', () => {
+      //       domainDetails.classList.remove('list')
+      //       prepareDetails(rollableMenu)
+      //       const choice = domainDetails.appendChild(document.createElement('p'))
+      //       choice.classList.add('choice')
+      //       choice.innerText = 'Choisissez un domaine :'
+      //       data.forEach((domain) => {
+      //         domain.products.forEach((item) => {
+      //           if (item === product) {
+      //             createDetails(domain, domainDetails)
+      //           }
+      //         })
+      //       })
+      //     })
+      //   }
+      // })
     } else {
       rollableMenu.innerText = ''
     }
   })
 })
+
+function orderArray(orderedArray, domainDetails) {
+  orderedArray = orderedArray.filter((empty) => empty != '')
+  orderedArray = [...new Set(orderedArray)]
+  orderedArray.sort()
+  domainDetails.classList.add('list')
+  orderedArray.forEach((orderedDomain) => {
+    const domainName = domainDetails.appendChild(document.createElement('a'))
+    domainName.href = 'javascript:;'
+    domainName.innerText = orderedDomain
+  })
+}
 
 function prepareDetails(rollableMenu) {
   rollableMenu.innerText = ''
@@ -134,7 +152,7 @@ function prepareDetails(rollableMenu) {
     domainDetails.classList.add('domainDetails')
   }
   const domainDetails = document.querySelector('.domainDetails')
-  domainDetails.classList.remove('appellations')
+  domainDetails.classList.remove('list')
   domainDetails.classList.remove('aboutDiv')
   domainDetails.textContent = ''
   const domainCloseBtn = domainDetails.appendChild(document.createElement('i'))
