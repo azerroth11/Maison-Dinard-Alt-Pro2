@@ -659,7 +659,8 @@ const popularLogos = [
   data[domainsArray.indexOf('H. Cuvelier & Fils')],
   data[domainsArray.indexOf('Château de Nages')],
 ]
-const logosDiv = document.body.insertBefore(document.createElement('div'), document.footer)
+const news = document.querySelector('.news')
+const logosDiv = document.body.insertBefore(document.createElement('div'), news)
 logosDiv.classList.add('logosDiv')
 popularLogos.forEach((domain) => {
   const logoIMG = logosDiv.appendChild(document.createElement('img'))

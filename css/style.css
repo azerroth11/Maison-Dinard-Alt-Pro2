@@ -288,7 +288,29 @@ nav .navigation a {
 }
 
 .logosDiv img:hover {
+  cursor: pointer;
   filter: saturate(1) opacity(100%);
+}
+
+/* News */
+.news {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 5rem auto;
+  max-width: 800px;
+  position: relative;
+  padding-top: 4rem;
+}
+
+.news h1 {
+  position: absolute;
+  top: 0;
+}
+
+.news img {
+  max-height: 200px;
+  margin: 1rem 3rem;
 }
 
 /* About */
@@ -321,8 +343,7 @@ nav .navigation a {
 
 /* Footer */
 footer {
-  position: fixed;
-  bottom: 0.5rem;
+  margin-bottom: 0.5rem;
   width: 100vw;
 }
 
@@ -341,10 +362,6 @@ footer p {
 }
 
 @media screen and (min-width: 800px) {
-  nav .logo form {
-    display: block;
-  }
-
   nav .logo a {
     margin: 0;
   }
