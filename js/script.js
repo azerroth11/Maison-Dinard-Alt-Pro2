@@ -71,7 +71,8 @@ navigationItems.forEach((a) => {
           details.href = 'javascript:;'
           const detailsLogo = details.appendChild(document.createElement('img'))
           detailsLogo.src = domain.logo
-          createDetails(domain, domainDetails, details)
+          // HEREREREREEREREREREREERERERERRE
+          addClickEvent(domain, details)
         }
       })
     } // Spiritueux
@@ -84,7 +85,7 @@ navigationItems.forEach((a) => {
           details.href = 'javascript:;'
           const detailsLogo = details.appendChild(document.createElement('img'))
           detailsLogo.src = domain.logo
-          createDetails(domain, domainDetails, details)
+          addClickEvent(domain, details)
         }
       })
     } // Domaines
@@ -114,6 +115,7 @@ navigationItems.forEach((a) => {
       divTitle.classList.add('choice')
       divTitle.innerText = 'Liste des Appellations: A-Z'
     } else {
+      console.log('error')
       rollableMenu.innerText = ''
     }
   })
@@ -133,7 +135,7 @@ function orderArray(orderedArray, domainDetails, rollableMenu) {
       data.forEach((domain) => {
         if (uniqueItem.innerText === domain.id) {
           details = uniqueItem
-          createDetails(domain, domainDetails, details)
+          addClickEvent(domain, details)
         } else {
           domain.products.forEach((product) => {
             if (uniqueItem.innerText === product) {
@@ -141,7 +143,7 @@ function orderArray(orderedArray, domainDetails, rollableMenu) {
               details.href = 'javascript:;'
               const detailsLogo = details.appendChild(document.createElement('img'))
               detailsLogo.src = domain.logo
-              createDetails(domain, domainDetails, details)
+              addClickEvent(domain, details)
             }
           })
         }
@@ -175,12 +177,10 @@ function prepareDetails(rollableMenu) {
   retour.innerText = 'Retour'
 }
 
-function createDetails(domain, details) {
+function addClickEvent(domain, details) {
   details.addEventListener('click', () => {
     prepareDetails(rollableMenu)
     const domainDetails = document.querySelector('.domainDetails')
-    domainDetails.classList.remove('list')
-    domainDetails.textContent = ''
     source(domain, domainDetails)
     const domainLogo = domainDetails.appendChild(document.createElement('img'))
     domainLogo.src = domain.logo
@@ -207,18 +207,19 @@ function createDetails(domain, details) {
   })
 }
 
+// Show source
 function source(domain, domainDetails) {
   const source = domainDetails.appendChild(document.createElement('div'))
   source.classList.add('source')
   const sourceDetails = source.appendChild(document.createElement('p'))
   if (domain.products != undefined) {
-    if (domain.color[0] != domain.products) {
+    if (domain.color[0] != domain.products && domain.products != '') {
       if (domain.id == 'Domaine Tariquet') {
         sourceDetails.innerText = `${domain.color[0]} > ${domain.products} & ${
           domain.color[domain.color.length - 1]
         } > ${domain.id}`
       } else {
-        sourceDetails.innerText = `${domain.color[0]} > ${domain.products} > ${domain.id}`
+        sourceDetails.innerText = `${domain.color[0]} > ${domain.products[0]} > ${domain.id}`
       }
     } else {
       sourceDetails.innerText = `${domain.color[0]} > ${domain.id}`
@@ -537,7 +538,7 @@ const data = [
   {
     location: 'Spiritueux',
     id: 'Dirum Dzama',
-    products: [''],
+    products: ['Spiritueux'],
     color: ['Spiritueux'],
     logo: './img/logos/dirumDzama.webp',
     web: '',
@@ -545,7 +546,7 @@ const data = [
   {
     location: 'Spiritueux',
     id: 'Les Whiskies du Monde',
-    products: [''],
+    products: ['Spiritueux'],
     color: ['Spiritueux'],
     logo: './img/logos/whiskiesDuMonde.webp',
     web: 'https://www.whiskiesdumonde.fr/fr/',
@@ -553,7 +554,7 @@ const data = [
   {
     location: 'Spiritueux',
     id: 'Pardela Spirits',
-    products: [''],
+    products: ['Spiritueux'],
     color: ['Spiritueux'],
     logo: './img/logos/pardelaSpirits.webp',
     web: 'https://www.pardelaspirits.fr/',
@@ -561,7 +562,7 @@ const data = [
   {
     location: 'Spiritueux',
     id: 'Moon Harbour',
-    products: [''],
+    products: ['Spiritueux'],
     color: ['Spiritueux'],
     logo: './img/logos/moonHarbor.webp',
     web: 'http://moonharbour.fr/',
@@ -569,7 +570,7 @@ const data = [
   {
     location: 'Spiritueux',
     id: 'Raymond Ragnaud',
-    products: [''],
+    products: ['Spiritueux'],
     color: ['Spiritueux'],
     logo: './img/logos/raymondRagnaud.webp',
     web: '',
@@ -666,5 +667,5 @@ popularLogos.forEach((domain) => {
   const logoIMG = logosDiv.appendChild(document.createElement('img'))
   logoIMG.src = domain.logo
   details = logoIMG
-  createDetails(domain, details)
+  addClickEvent(domain, details)
 })
