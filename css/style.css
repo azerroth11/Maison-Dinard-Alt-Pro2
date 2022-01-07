@@ -301,12 +301,14 @@ nav .navigation a {
   margin: 5rem auto;
   max-width: 800px;
   position: relative;
-  padding-top: 4rem;
+  padding-top: 5rem;
 }
 
 .news h1 {
   position: absolute;
   top: 0;
+  max-width: max(250px, 75%);
+  text-align: center;
 }
 
 .news img {
@@ -360,6 +362,7 @@ footer a:hover {
 
 footer p {
   margin: 0 auto;
+  padding: 0 2rem;
   text-align: center;
 }
 
