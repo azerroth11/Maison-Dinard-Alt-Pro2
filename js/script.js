@@ -1,9 +1,9 @@
 const navigation = document.querySelector('.navigation')
 const navigationItems = Array.from(navigation.children)
+const rollableMenu = document.querySelector('.rollableMenu')
 
 navigationItems.forEach((a) => {
   a.addEventListener('click', () => {
-    const rollableMenu = document.querySelector('.rollableMenu')
     // Wine
     if (a.innerText == 'Vins' && rollableMenu.innerText == '') {
       const menuDivRegions = rollableMenu.appendChild(document.createElement('div'))
@@ -175,8 +175,10 @@ function prepareDetails(rollableMenu) {
   retour.innerText = 'Retour'
 }
 
-function createDetails(domain, domainDetails, details) {
+function createDetails(domain, details) {
   details.addEventListener('click', () => {
+    prepareDetails(rollableMenu)
+    const domainDetails = document.querySelector('.domainDetails')
     domainDetails.classList.remove('list')
     domainDetails.textContent = ''
     source(domain, domainDetails)
@@ -616,9 +618,9 @@ const swiper = new Swiper('.swiper', {
   },
 })
 
+// About
 const about = document.querySelector('#about')
 about.addEventListener('click', () => {
-  const rollableMenu = document.querySelector('.rollableMenu')
   prepareDetails(rollableMenu)
   const domainDetails = document.querySelector('.domainDetails')
   domainDetails.classList.add('aboutDiv')
@@ -657,12 +659,11 @@ const popularLogos = [
   data[domainsArray.indexOf('H. Cuvelier & Fils')],
   data[domainsArray.indexOf('Château de Nages')],
 ]
-
-const body = document.querySelector('body')
-const footer = document.querySelector('footer')
-const logosDiv = body.insertBefore(document.createElement('div'), footer)
+const logosDiv = document.body.insertBefore(document.createElement('div'), document.footer)
 logosDiv.classList.add('logosDiv')
 popularLogos.forEach((domain) => {
   const logoIMG = logosDiv.appendChild(document.createElement('img'))
   logoIMG.src = domain.logo
+  details = logoIMG
+  createDetails(domain, details)
 })

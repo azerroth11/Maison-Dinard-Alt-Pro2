@@ -245,6 +245,10 @@ nav .navigation a {
   font-size: 1.5rem;
 }
 
+.domainDetails img {
+  padding: 1rem;
+}
+
 .list {
   flex-direction: column;
   gap: 0.25rem;
