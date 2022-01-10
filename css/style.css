@@ -59,12 +59,7 @@ nav .logo a {
   height: 125%;
   max-height: 250px;
   align-self: flex-start;
-  transition: scale 0.25s;
   margin: 0 auto;
-}
-
-nav .logo a:hover {
-  scale: 1.01;
 }
 
 nav .logo .links {

@@ -71,7 +71,6 @@ navigationItems.forEach((a) => {
           details.href = 'javascript:;'
           const detailsLogo = details.appendChild(document.createElement('img'))
           detailsLogo.src = domain.logo
-          // HEREREREREEREREREREREERERERERRE
           addClickEvent(domain, details)
         }
       })
@@ -115,7 +114,7 @@ navigationItems.forEach((a) => {
       divTitle.classList.add('choice')
       divTitle.innerText = 'Liste des Appellations: A-Z'
     } else {
-      console.log('error')
+      console.log('Error')
       rollableMenu.innerText = ''
     }
   })
