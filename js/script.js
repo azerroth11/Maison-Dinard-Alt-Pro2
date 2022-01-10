@@ -114,7 +114,6 @@ navigationItems.forEach((a) => {
       divTitle.classList.add('choice')
       divTitle.innerText = 'Liste des Appellations: A-Z'
     } else {
-      console.log('Error')
       rollableMenu.innerText = ''
     }
   })
