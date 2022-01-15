@@ -16,6 +16,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   overflow-x: hidden;
   height: -webkit-fill-available;
+  min-height: 800px;
 }
 
 a {
@@ -42,8 +43,6 @@ nav {
   max-width: 1300px;
   margin: 0 auto;
   text-align: center;
-  top: 0;
-  z-index: 100;
   background-color: #fff;
 }
 
@@ -56,13 +55,12 @@ nav .logo {
 }
 
 nav .logo a {
-  height: 125%;
+  height: 100%;
   max-height: 250px;
-  align-self: flex-start;
   margin: 0 auto;
 }
 
-nav .logo .links {
+nav .logo .desktopLinks {
   display: none;
 }
 
@@ -76,7 +74,6 @@ nav .navigation {
   justify-content: space-evenly;
   overflow: hidden;
   margin: 0 auto;
-  max-width: min(90%, 1000px);
 }
 
 nav .navigation a {
@@ -291,29 +288,6 @@ nav .navigation a {
   filter: saturate(1) opacity(100%);
 }
 
-/* News */
-.news {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin: 5rem auto;
-  max-width: 800px;
-  position: relative;
-  padding-top: 5rem;
-}
-
-.news h1 {
-  position: absolute;
-  top: 0;
-  max-width: max(250px, 75%);
-  text-align: center;
-}
-
-.news img {
-  max-height: 200px;
-  margin: 1rem 3rem;
-}
-
 /* About */
 .aboutDiv {
   border: none;
@@ -344,7 +318,8 @@ nav .navigation a {
 
 /* Footer */
 footer {
-  margin-bottom: 0.5rem;
+  position: fixed;
+  bottom: 1rem;
   width: 100vw;
 }
 
@@ -368,17 +343,18 @@ footer p {
     margin: 0;
   }
 
-  nav .logo .links {
+  nav .logo .desktopLinks {
     display: flex;
+    align-items: center;
     justify-content: space-evenly;
     text-transform: uppercase;
   }
 
-  nav .logo .links a {
+  nav .logo .desktopLinks a {
     width: 125px;
   }
 
-  nav .logo .links a:hover {
+  nav .logo .desktopLinks a:hover {
     font-weight: bold;
   }
 
