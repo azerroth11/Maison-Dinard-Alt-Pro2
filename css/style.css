@@ -115,8 +115,10 @@ nav .navigation > a {
   font-size: 1.25rem;
   line-height: 2.5rem;
   border: 2px solid #fff;
-  max-width: 35ch;
+  width: 100%;
+  max-width: min(75%, 35ch);
   padding: 2rem 2rem;
+  font-weight: bold;
 }
 
 /* RollableMenu */
