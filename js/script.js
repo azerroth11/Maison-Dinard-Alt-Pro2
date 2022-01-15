@@ -49,7 +49,7 @@ navigationItems.forEach((a) => {
       clearRollableMenu(rollableMenu)
       data.forEach((domain) => {
         if (domain.color.includes('Champagne')) {
-          rollableMenu.classList.add('domainDetails')
+          rollableMenu.classList.add('navResults')
           const details = rollableMenu.appendChild(document.createElement('a'))
           details.href = 'javascript:;'
           const detailsLogo = details.appendChild(document.createElement('img'))
@@ -60,9 +60,9 @@ navigationItems.forEach((a) => {
     } // Spiritueux
     else if (a.innerText == 'Spiritueux') {
       clearRollableMenu(rollableMenu)
-      rollableMenu.classList.add('domainDetails')
       data.forEach((domain) => {
         if (domain.color.includes('Spiritueux')) {
+          rollableMenu.classList.add('navResults')
           const details = rollableMenu.appendChild(document.createElement('a'))
           details.href = 'javascript:;'
           const detailsLogo = details.appendChild(document.createElement('img'))
@@ -120,6 +120,7 @@ function orderArray(orderedArray, domainDetails) {
           details = uniqueItem
           addClickEvent(domain, details)
         } else {
+          domainDetails.classList.add('navResults')
           domain.products.forEach((product) => {
             if (uniqueItem.innerText === product) {
               const details = domainDetails.appendChild(document.createElement('a'))
@@ -153,7 +154,7 @@ function addClickEvent(domain, details) {
     }
     const hero = document.querySelector('.hero')
     const resultContainer = hero.appendChild(document.createElement('div'))
-    resultContainer.classList.add('domainDetails', 'domainResult')
+    resultContainer.classList.add('domainResult')
     const domainLogo = resultContainer.appendChild(document.createElement('img'))
     domainLogo.src = domain.logo
     const domainDetailsDiv = resultContainer.appendChild(document.createElement('div'))

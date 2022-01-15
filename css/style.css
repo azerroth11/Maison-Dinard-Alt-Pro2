@@ -152,7 +152,7 @@ nav .navigation > a {
 }
 
 /* Domain Details */
-.domainDetails {
+.navResults {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -161,50 +161,64 @@ nav .navigation > a {
   width: 100%;
   background-color: #fff;
   opacity: 100%;
-  z-index: 9;
   padding: 3rem 2rem;
   gap: 2rem;
 }
 
-.domainDetails .source {
+.domainResult {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
   position: absolute;
   top: 0;
+  min-height: 100%;
+  width: 100%;
+  opacity: 100%;
+  z-index: 9;
+  padding: 3rem 2rem;
+  gap: 2rem;
+  border: 2px solid black;
+  background-color: #fff;
 }
 
-.domainDetails > img {
+.domainResult > img {
   width: 350px;
   max-height: 250px;
   object-fit: contain;
 }
 
-.domainDetails a {
+.domainResult a,
+.navResults a {
   max-width: 175px;
 }
 
-.domainDetails a img {
+.domainResult a img,
+.navResults a img {
   transition: scale 0.25s;
 }
 
-.domainDetails a img:hover {
+.domainResult a img:hover,
+.navResults a img:hover {
   scale: 1.025;
 }
 
-.domainDetails div {
+.domainResult div {
   display: grid;
   padding: 1rem;
 }
 
-.domainDetails div h1 {
+.domainResult div h1 {
   color: var(--secondary);
   text-align: center;
 }
 
-.domainDetails div p:not(.source p, i p) {
+.domainResult div p:not(i p) {
   margin-top: 1rem;
   max-width: 50ch;
 }
 
-.domainDetails .webSiteBTN {
+.domainResult .webSiteBTN {
   padding: 0.75rem 2rem;
   margin: 2rem auto 0 auto;
   width: fit-content;
@@ -214,16 +228,16 @@ nav .navigation > a {
   transition: scale 0.2s;
 }
 
-.domainDetails .webSiteBTN:hover {
+.domainResult .webSiteBTN:hover {
   scale: 1.03;
 }
 
-.domainDetails i:hover {
+.domainResult i:hover {
   cursor: pointer;
   text-shadow: 0 0 2px #000;
 }
 
-.domainDetails i {
+.domainResult i {
   position: absolute;
   top: 3rem;
   right: 1.5rem;
@@ -231,7 +245,7 @@ nav .navigation > a {
   transition: scale 0.2s;
 }
 
-.domainDetails i p {
+.domainResult i p {
   transform: rotate(90deg);
   position: absolute;
   top: 175%;
@@ -240,14 +254,8 @@ nav .navigation > a {
   font-size: 1.5rem;
 }
 
-.domainDetails img {
+.domainResult img {
   padding: 1rem;
-}
-
-.domainResult {
-  top: 0;
-  height: 100%;
-  border: 2px solid black;
 }
 
 .list {
