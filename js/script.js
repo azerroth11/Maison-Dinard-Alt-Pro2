@@ -1,11 +1,13 @@
 const navigation = document.querySelector('.navigation')
 const navigationItems = Array.from(navigation.children)
 const rollableMenu = document.querySelector('.rollableMenu')
+const nav = document.querySelector('nav')
 
 navigationItems.forEach((a) => {
-  a.addEventListener('click', () => {
+  a.addEventListener('mouseover', () => {
     // Wine
     if (a.innerText == 'Vins' && rollableMenu.innerText == '') {
+      clearRollableMenu(rollableMenu)
       const menuDivRegions = rollableMenu.appendChild(document.createElement('div'))
       menuDivRegions.classList.add('regions')
       const menuRegion = menuDivRegions.appendChild(document.createElement('p'))
@@ -34,27 +36,8 @@ navigationItems.forEach((a) => {
                   const domainItem = menuDivDomains.appendChild(document.createElement('a'))
                   domainItem.href = 'javascript:;'
                   domainItem.innerText = domain.id
-                  domainItem.addEventListener('click', () => {
-                    prepareDetails(rollableMenu)
-                    const domainDetails = document.querySelector('.domainDetails')
-                    source(domain, domainDetails)
-                    const domainLogo = domainDetails.appendChild(document.createElement('img'))
-                    domainLogo.src = domain.logo
-                    const domainDetailsDiv = domainDetails.appendChild(
-                      document.createElement('div')
-                    )
-                    const domainName = domainDetailsDiv.appendChild(document.createElement('h1'))
-                    domainName.innerText = domain.id
-                    const domainSpeech = domainDetailsDiv.appendChild(document.createElement('p'))
-                    domainSpeech.innerText =
-                      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis maiores quia repellat totam rem reprehenderit expedita et illum sit libero a, quasi nostrum, aperiam similique?'
-                    if (domain.web != '') {
-                      const domainLink = domainDetailsDiv.appendChild(document.createElement('a'))
-                      domainLink.classList.add('domainLink')
-                      domainLink.innerText = 'Site Web'
-                      domainLink.href = domain.web
-                    }
-                  })
+                  const details = domainItem
+                  addClickEvent(domain, details)
                 }
               })
             })
@@ -63,11 +46,11 @@ navigationItems.forEach((a) => {
       })
     } // Champagne
     else if (a.innerText == 'Champagnes') {
-      prepareDetails(rollableMenu)
-      const domainDetails = document.querySelector('.domainDetails')
+      clearRollableMenu(rollableMenu)
       data.forEach((domain) => {
         if (domain.color.includes('Champagne')) {
-          const details = domainDetails.appendChild(document.createElement('a'))
+          rollableMenu.classList.add('domainDetails')
+          const details = rollableMenu.appendChild(document.createElement('a'))
           details.href = 'javascript:;'
           const detailsLogo = details.appendChild(document.createElement('img'))
           detailsLogo.src = domain.logo
@@ -76,11 +59,11 @@ navigationItems.forEach((a) => {
       })
     } // Spiritueux
     else if (a.innerText == 'Spiritueux') {
-      prepareDetails(rollableMenu)
-      const domainDetails = document.querySelector('.domainDetails')
+      clearRollableMenu(rollableMenu)
+      rollableMenu.classList.add('domainDetails')
       data.forEach((domain) => {
         if (domain.color.includes('Spiritueux')) {
-          const details = domainDetails.appendChild(document.createElement('a'))
+          const details = rollableMenu.appendChild(document.createElement('a'))
           details.href = 'javascript:;'
           const detailsLogo = details.appendChild(document.createElement('img'))
           detailsLogo.src = domain.logo
@@ -89,20 +72,20 @@ navigationItems.forEach((a) => {
       })
     } // Domaines
     else if (a.innerText == 'Domaines') {
-      prepareDetails(rollableMenu)
+      clearRollableMenu(rollableMenu)
       const orderedArray = []
       data.forEach((domain) => {
         orderedArray.push(domain.id)
       })
-      const domainDetails = document.querySelector('.domainDetails')
+      const domainDetails = document.querySelector('.rollableMenu')
       orderArray(orderedArray, domainDetails, rollableMenu)
       const divTitle = domainDetails.appendChild(document.createElement('p'))
       divTitle.classList.add('choice')
       divTitle.innerText = 'Liste des Domaines: A-Z'
     } // Appellations
     else if (a.innerText == 'Appellations') {
-      prepareDetails(rollableMenu)
-      const domainDetails = document.querySelector('.domainDetails')
+      clearRollableMenu(rollableMenu)
+      const domainDetails = document.querySelector('.rollableMenu')
       const orderedArray = []
       data.forEach((domain) => {
         domain.products.forEach((product) => {
@@ -113,23 +96,25 @@ navigationItems.forEach((a) => {
       const divTitle = domainDetails.appendChild(document.createElement('p'))
       divTitle.classList.add('choice')
       divTitle.innerText = 'Liste des Appellations: A-Z'
-    } else {
-      rollableMenu.innerText = ''
     }
   })
 })
 
-function orderArray(orderedArray, domainDetails, rollableMenu) {
+nav.addEventListener('mouseleave', () => {
+  clearRollableMenu(rollableMenu)
+})
+
+function orderArray(orderedArray, domainDetails) {
   orderedArray = orderedArray.filter((empty) => empty != '')
   orderedArray = [...new Set(orderedArray)]
   orderedArray.sort()
   domainDetails.classList.add('list')
   orderedArray.forEach((orderedItem) => {
-    const uniqueItem = domainDetails.appendChild(document.createElement('a'))
+    const uniqueItem = rollableMenu.appendChild(document.createElement('a'))
     uniqueItem.href = 'javascript:;'
     uniqueItem.innerText = orderedItem
     uniqueItem.addEventListener('click', () => {
-      prepareDetails(rollableMenu)
+      clearRollableMenu(rollableMenu)
       data.forEach((domain) => {
         if (uniqueItem.innerText === domain.id) {
           details = uniqueItem
@@ -147,42 +132,31 @@ function orderArray(orderedArray, domainDetails, rollableMenu) {
         }
       }),
         uniqueItem.click()
-      if (domainDetails.children.length == 2) {
-        domainDetails.lastElementChild.click()
+      if (rollableMenu.children.length == 1) {
+        rollableMenu.lastElementChild.click()
       }
     })
   })
 }
 
-function prepareDetails(rollableMenu) {
+function clearRollableMenu(rollableMenu) {
   rollableMenu.innerText = ''
-  const hero = document.querySelector('.hero')
-  if (hero.lastElementChild.classList.contains('swiper-pagination')) {
-    const domainDetails = hero.appendChild(document.createElement('div'))
-    domainDetails.classList.add('domainDetails')
-  }
-  const domainDetails = document.querySelector('.domainDetails')
-  domainDetails.classList.remove('appellations')
-  domainDetails.classList.remove('aboutDiv')
-  domainDetails.classList.remove('list')
-  domainDetails.textContent = ''
-  const domainCloseBtn = domainDetails.appendChild(document.createElement('i'))
-  domainCloseBtn.classList.add('fas', 'fa-times')
-  domainCloseBtn.addEventListener('click', () => {
-    domainDetails.remove()
-  })
-  const retour = domainCloseBtn.appendChild(document.createElement('p'))
-  // retour.innerText = 'Retour'
+  rollableMenu.classList = 'rollableMenu'
 }
 
 function addClickEvent(domain, details) {
   details.addEventListener('click', () => {
-    prepareDetails(rollableMenu)
-    const domainDetails = document.querySelector('.domainDetails')
-    source(domain, domainDetails)
-    const domainLogo = domainDetails.appendChild(document.createElement('img'))
+    clearRollableMenu(rollableMenu)
+    const domainResult = document.querySelector('.domainResult')
+    if (domainResult != undefined) {
+      domainResult.remove()
+    }
+    const hero = document.querySelector('.hero')
+    const resultContainer = hero.appendChild(document.createElement('div'))
+    resultContainer.classList.add('domainDetails', 'domainResult')
+    const domainLogo = resultContainer.appendChild(document.createElement('img'))
     domainLogo.src = domain.logo
-    const domainDetailsDiv = domainDetails.appendChild(document.createElement('div'))
+    const domainDetailsDiv = resultContainer.appendChild(document.createElement('div'))
     const domainName = domainDetailsDiv.appendChild(document.createElement('h1'))
     domainName.innerText = domain.id
     const domainSpeech = domainDetailsDiv.appendChild(document.createElement('p'))
@@ -195,29 +169,12 @@ function addClickEvent(domain, details) {
       domainLink.href = domain.web
       domainLink.target = '_blank'
     }
+    const domainCloseBtn = resultContainer.appendChild(document.createElement('i'))
+    domainCloseBtn.classList.add('fas', 'fa-times')
+    domainCloseBtn.addEventListener('click', () => {
+      resultContainer.remove()
+    })
   })
-}
-
-// Show source
-function source(domain, domainDetails) {
-  const source = domainDetails.appendChild(document.createElement('div'))
-  source.classList.add('source')
-  const sourceDetails = source.appendChild(document.createElement('p'))
-  if (domain.products != undefined) {
-    if (domain.color[0] != domain.products && domain.products != '') {
-      if (domain.id == 'Domaine Tariquet') {
-        sourceDetails.innerText = `${domain.color[0]} > ${domain.products} & ${
-          domain.color[domain.color.length - 1]
-        } > ${domain.id}`
-      } else {
-        sourceDetails.innerText = `${domain.color[0]} > ${domain.products[0]} > ${domain.id}`
-      }
-    } else {
-      sourceDetails.innerText = `${domain.color[0]} > ${domain.id}`
-    }
-  } else {
-    sourceDetails.innerText = `${domain.color[0]} > ${domain.id}`
-  }
 }
 
 // Data
@@ -613,7 +570,7 @@ const swiper = new Swiper('.swiper', {
 // About
 const about = document.querySelector('#about')
 about.addEventListener('click', () => {
-  prepareDetails(rollableMenu)
+  clearRollableMenu(rollableMenu)
   const domainDetails = document.querySelector('.domainDetails')
   domainDetails.classList.add('aboutDiv')
   const aboutIMG = domainDetails.appendChild(document.createElement('img'))
