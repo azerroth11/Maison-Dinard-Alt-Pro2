@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@200;300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600&display=swap');
 
 :root {
   --main: rgb(31, 56, 78);
@@ -16,7 +16,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   overflow-x: hidden;
   height: -webkit-fill-available;
-  min-height: 800px;
+  min-height: max(100vh, 700px);
 }
 
 a {
@@ -58,7 +58,7 @@ nav .logo a {
 }
 
 nav .logo a img {
-  max-height: 100px;
+  max-height: 12.5vh;
 }
 
 nav .logo .desktopLinks {
@@ -74,7 +74,6 @@ nav .navigation {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
-  /* overflow: hidden; */
   margin: 0 auto;
   position: relative;
 }
@@ -154,19 +153,6 @@ nav .navigation > a {
 }
 
 /* Domain Details */
-.navResults {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-evenly;
-  position: absolute;
-  width: 100%;
-  background-color: #fff;
-  opacity: 100%;
-  padding: 3rem 2rem;
-  gap: 2rem;
-}
-
 .domainResult {
   display: flex;
   flex-wrap: wrap;
@@ -184,15 +170,31 @@ nav .navigation > a {
   background-color: #fff;
 }
 
+.navResults {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  position: absolute;
+  width: 100%;
+  background-color: #fff;
+  opacity: 100%;
+  padding: 3rem 2rem;
+  gap: 2rem;
+}
+
 .domainResult > img {
   width: 350px;
   max-height: 250px;
   object-fit: contain;
 }
 
-.domainResult a,
-.navResults a {
+.domainResult a {
   max-width: 175px;
+}
+
+.navResults a {
+  max-width: 150px;
 }
 
 .domainResult a img,
@@ -333,8 +335,9 @@ nav .navigation > a {
 
 /* Footer */
 footer {
-  position: fixed;
-  bottom: 1rem;
+  position: sticky;
+  top: 100vh;
+  padding: 1rem 0;
   width: 100vw;
 }
 
