@@ -337,7 +337,7 @@ nav .navigation > a {
 footer {
   position: sticky;
   top: 100vh;
-  padding: 1rem 0;
+  padding: 3rem 0 1rem 0;
   width: 100vw;
 }
 

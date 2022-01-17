@@ -1,7 +1,5 @@
-const navigation = document.querySelector('.navigation')
-const navigationItems = Array.from(navigation.children)
+const navigationItems = Array.from(document.querySelector('.navigation').children)
 const rollableMenu = document.querySelector('.rollableMenu')
-const nav = document.querySelector('nav')
 
 navigationItems.forEach((a) => {
   a.addEventListener('mouseover', () => {
@@ -100,7 +98,7 @@ navigationItems.forEach((a) => {
   })
 })
 
-nav.addEventListener('mouseleave', () => {
+document.querySelector('nav').addEventListener('mouseleave', () => {
   clearRollableMenu(rollableMenu)
 })
 
@@ -160,9 +158,12 @@ function addClickEvent(domain, details) {
     const domainDetailsDiv = resultContainer.appendChild(document.createElement('div'))
     const domainName = domainDetailsDiv.appendChild(document.createElement('h1'))
     domainName.innerText = domain.id
-    const domainSpeech = domainDetailsDiv.appendChild(document.createElement('p'))
-    domainSpeech.innerText =
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis maiores quia repellat totam rem reprehenderit expedita et illum sit libero a, quasi nostrum, aperiam similique?'
+    const domainTopo = domainDetailsDiv.appendChild(document.createElement('p'))
+    if (domain.topo != '') {
+      domainTopo.innerText = domain.topo
+    } else {
+      domainTopo.innerText = 'Texte manquant'
+    }
     if (domain.web != '') {
       const domainLink = domainDetailsDiv.appendChild(document.createElement('a'))
       domainLink.classList.add('webSiteBTN')
@@ -187,6 +188,7 @@ const data = [
     color: ['Vins', 'Rouge'],
     logo: '',
     web: '',
+    topo: '',
   },
   {
     location: 'Beaujolais',
@@ -195,6 +197,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/chateauPizay.webp',
     web: 'https://www.chateau-pizay.com/fr',
+    topo: '',
   },
   {
     location: 'Bordeaux',
@@ -203,6 +206,7 @@ const data = [
     color: ['Vins', 'Rouge'],
     logo: './img/logos/cuvelier.webp',
     web: 'https://www.cuvelier-bordeaux.com/',
+    topo: '',
   },
   {
     location: 'Bordeaux',
@@ -211,6 +215,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: '',
     web: '',
+    topo: '',
   },
   {
     location: 'Bordeaux',
@@ -219,6 +224,7 @@ const data = [
     color: ['Vins', 'Rouge'],
     logo: './img/logos/girondeEtGascogne.webp',
     web: 'https://www.gironde-et-gascogne.com/',
+    topo: '',
   },
   {
     location: 'Bordeaux',
@@ -226,7 +232,9 @@ const data = [
     products: [''],
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/tourteauChollet.webp',
-    web: '',
+    topo: 'Depuis sa création vers 1760, le Château Tourteau Chollet bénéficie de la qualité de son terroir et est reconnu pour être un des plus grands crus de Graves dès 1943. Un terroir fabuleux : un plateau sablo graveleux de la troisième terrasse de la Garonne, où aime s’épanouir la vigne. Sur ce terroir imprégné par les senteurs boisées de la forêt Landaise, la propriété bénéficie, au cœur des Graves, d’une situation idyllique, pour produire des vins soyeux et gourmands, tout en élégance.',
+    web: 'https://lesvignoblesdemaxime.com/',
+    topo: '',
   },
   {
     location: 'Bordeaux',
@@ -235,6 +243,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/vignobles-andre-lurton.webp',
     web: 'https://boutique.andrelurton.com/',
+    topo: "Société familiale, notre groupe Les Vignobles André Lurton est actuellement l'une des entreprises viticoles les plus importantes du Bordelais. Son fondateur, André Lurton, était un viticulteur. La vigne fut sa raison de vivre pendant près de 70 ans. Il lui consacra une grande partie de sa vie et de son temps. Il la défendit ardemment et sut l'aimer comme seul pouvait l'aimer un homme né sur ce terroir.",
   },
   {
     location: 'Bourgogne',
@@ -243,6 +252,7 @@ const data = [
     color: ['Vins', 'Rouge', 'Blanc'],
     logo: './img/logos/domainesDevillard.webp',
     web: 'http://www.domaines-devillard.com/',
+    topo: "C'est une histoire qui s’écrit au pluriel, au fil des siècles et au gré des appellations. Une histoire de famille, passionnée et amoureuse du vignoble. Les Devillard sont propriétaires depuis plusieurs générations, de 4 domaines en Bourgogne, du Nord au Sud, de la Côte de Nuits au Mâconnais",
   },
   {
     location: 'Bourgogne',
@@ -251,6 +261,7 @@ const data = [
     color: ['Vins', 'Blanc'],
     logo: './img/logos/domaineFevre.webp',
     web: 'https://www.nathalieetgillesfevre.com/',
+    topo: "La famille FÈVRE est née il y a plusieurs siècles au cœur du vignoble de Chablis. En effet, nous avons d'ores et déjà pu établir notre arbre généalogique jusqu'en 1745. Notre famille a toujours travaillé dans le vignoble; certains étaient tonneliers (vers 1800), d'autres ont été pépiniéristes (vers 1900).",
   },
   {
     location: 'Bourgogne',
@@ -259,6 +270,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/lamy-Pillot-logo.webp',
     web: 'https://www.rene-lamy.fr/',
+    topo: 'La Maison René Lamy est née en Juin 2004, à l’initiative du Domaine Lamy-Pillot, situé à Chassagne-Montrachet, en Côte de Beaune. Face à la demande accrue de clients cavistes et restaurateurs pour une offre de vins de Domaines, Karine et Daniel CADOT-LAMY, du Domaine Lamy-Pillot, ont fédéré une trentaine de domaines bourguignons afin de répondre à cette attente.',
   },
   {
     location: 'Champagne',
@@ -267,6 +279,7 @@ const data = [
     color: ['Champagne'],
     logo: './img/logos/billecart-salmon.webp',
     web: 'https://www.champagne-billecart.fr/fr/verification-age-legal?locale=fr',
+    topo: 'De la côte des Blancs à la Montagne de Reims, en passant par la Vallée de la Marne, les vignes du champagne Billecart Salmon s’épanouissent sous le soleil champenois. Plus de 40 crus de la Champagne poussent dans un rayon de 20 kilomètres autour d’Épernay et, depuis plus de 200 ans, participent à la fabrication du champagne de la maison.',
   },
   {
     location: 'Champagne',
@@ -275,6 +288,7 @@ const data = [
     color: ['Champagne'],
     logo: './img/logos/DrappierLogo.webp',
     web: 'https://www.champagne-drappier.com/fr/',
+    topo: "La Maison Drappier compte aujourd’hui sur 2 siècles d’histoire et de savoir-faire transmis sur huit générations pour nous offrir le meilleur de la Champagne. Tout a commencé en 1808 lorsque François Drappier s'installe à Urville et commence l’exploitation de la vigne. Il bénéficie d’un site exceptionnel pour développer son domaine dans l’enceinte d’une maison cistercienne qui comprend des caves voûtées construites en 1152 par Saint-Bernard, fondateur de l'abbaye de Clairvaux.",
   },
   {
     location: 'Corse',
@@ -283,6 +297,7 @@ const data = [
     color: ['Vins', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineVico.webp',
     web: 'https://domainevico.com/',
+    topo: 'Quarante neuf hectares de schistes, basaltes, granites, galets roulés entre 260 et 360 mètres d’altitude au pied de sommets culminants à 2000 mètres. C’est ce terroir particulier et atypique des montagnes du centre Corse qui fait la spécificité des vins de nos terroirs mariant fraicheur et tension continentale à une certaine maturité méridionale.',
   },
   {
     location: 'Languedoc',
@@ -291,6 +306,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineCendrillon.webp',
     web: 'https://www.lacendrillon.fr/en/',
+    topo: '',
   },
   {
     location: 'Languedoc',
@@ -299,6 +315,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineGrandChemin.webp',
     web: 'https://www.domainegrandchemin.fr/',
+    topo: '',
   },
   {
     location: 'Languedoc',
@@ -307,6 +324,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/croixChaptal.webp',
     web: 'http://www.lacroixchaptal.com/',
+    topo: '',
   },
   {
     location: 'Languedoc',
@@ -315,6 +333,7 @@ const data = [
     color: ['Vins', 'Rouge'],
     logo: './img/logos/domaineBru.webp',
     web: 'https://www.domainemylenebru.fr/',
+    topo: '',
   },
   {
     location: 'Languedoc',
@@ -323,6 +342,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/chateauDeFontenille.webp',
     web: 'https://www.chateau-fontenille-boutique.com/',
+    topo: '',
   },
   {
     location: 'Languedoc',
@@ -331,6 +351,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/AnneDeJoyeuse.webp',
     web: 'https://www.annedejoyeuse.fr/',
+    topo: '',
   },
   {
     location: 'Loire',
@@ -339,6 +360,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/LevronVincenot.webp',
     web: 'https://chateaudeparnay.fr/',
+    topo: '',
   },
   {
     location: 'Loire',
@@ -347,6 +369,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineFilliatreau.webp',
     web: 'https://www.domaine-filliatreau.com/',
+    topo: '',
   },
   {
     location: 'Loire',
@@ -355,6 +378,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/DomaineLaporte.webp',
     web: 'https://www.laporte-sancerre.com/',
+    topo: '',
   },
   {
     location: 'Loire',
@@ -363,6 +387,7 @@ const data = [
     color: ['Vins', 'Blanc'],
     logo: './img/logos/label-pierre-luneau-papin.webp',
     web: 'https://www.domaineluneaupapin.com/',
+    topo: '',
   },
   {
     location: 'Loire',
@@ -371,6 +396,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge'],
     logo: './img/logos/logolorieux_1.webp',
     web: 'http://www.lorieux.fr/',
+    topo: '',
   },
   {
     location: 'Loire',
@@ -379,6 +405,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineMaison.webp',
     web: 'https://www.domainemaison.com/fr/index.php',
+    topo: '',
   },
   {
     location: 'Loire',
@@ -387,6 +414,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/sagetLaPerriere.webp',
     web: 'https://www.sagetlaperriere.fr/',
+    topo: '',
   },
   {
     location: 'Loire',
@@ -395,6 +423,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domainesTatin.webp',
     web: 'https://www.domaines-tatin.com/',
+    topo: '',
   },
   {
     location: 'Provence',
@@ -403,6 +432,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/chateauPasDuCerf.webp',
     web: 'https://www.pasducerf.com/',
+    topo: '',
   },
   {
     location: 'Provence',
@@ -411,6 +441,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineDeLaBegude.webp',
     web: 'https://domainedelabegude.fr/',
+    topo: '',
   },
   {
     location: 'Provence',
@@ -419,6 +450,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineRouilliere.webp',
     web: 'https://www.domainelarouillere.com/',
+    topo: '',
   },
   {
     location: 'Rhône',
@@ -427,6 +459,7 @@ const data = [
     color: ['Vins', 'Rouge', 'Blanc'],
     logo: './img/logos/yannChaveLogo.webp',
     web: 'https://www.yannchave.com/',
+    topo: '',
   },
   {
     location: 'Rhône',
@@ -435,6 +468,7 @@ const data = [
     color: ['Vins', 'Rouge'],
     logo: './img/logos/AmesComplices.webp',
     web: '',
+    topo: '',
   },
   {
     location: 'Rhône',
@@ -443,6 +477,7 @@ const data = [
     color: ['Vins', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineDeBeaurenard.webp',
     web: 'http://www.beaurenard.fr/',
+    topo: '',
   },
   {
     location: 'Rhône',
@@ -451,6 +486,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineMordoree.webp',
     web: 'https://www.domaine-mordoree.com/',
+    topo: '',
   },
   {
     location: 'Rhône',
@@ -459,6 +495,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineDeMontvac.webp',
     web: 'https://domainedemontvac.fr/',
+    topo: '',
   },
   {
     location: 'Rhône',
@@ -467,6 +504,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaine-saint-amant-logo.webp',
     web: 'https://www.domainesaintamant.com/',
+    topo: '',
   },
   {
     location: 'Rhône',
@@ -475,6 +513,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/chateaudeNages.webp',
     web: 'https://www.chateaudenages.com/fr/',
+    topo: '',
   },
   {
     location: 'Rhône',
@@ -483,6 +522,7 @@ const data = [
     color: ['Vins', 'Rouge', 'Blanc'],
     logo: './img/logos/LionelFaury.webp',
     web: 'https://vins-lionel-faury.fr/',
+    topo: '',
   },
   {
     location: 'Spiritueux',
@@ -491,6 +531,7 @@ const data = [
     color: ['Spiritueux'],
     logo: './img/logos/dirumDzama.webp',
     web: '',
+    topo: '',
   },
   {
     location: 'Spiritueux',
@@ -499,6 +540,7 @@ const data = [
     color: ['Spiritueux'],
     logo: './img/logos/whiskiesDuMonde.webp',
     web: 'https://www.whiskiesdumonde.fr/fr/',
+    topo: '',
   },
   {
     location: 'Spiritueux',
@@ -507,6 +549,7 @@ const data = [
     color: ['Spiritueux'],
     logo: './img/logos/pardelaSpirits.webp',
     web: 'https://www.pardelaspirits.fr/',
+    topo: '',
   },
   {
     location: 'Spiritueux',
@@ -515,6 +558,7 @@ const data = [
     color: ['Spiritueux'],
     logo: './img/logos/moonHarbor.webp',
     web: 'http://moonharbour.fr/',
+    topo: '',
   },
   {
     location: 'Spiritueux',
@@ -523,6 +567,7 @@ const data = [
     color: ['Spiritueux'],
     logo: './img/logos/raymondRagnaud.webp',
     web: '',
+    topo: '',
   },
   {
     location: 'Sud-Ouest',
@@ -531,6 +576,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/bistosDeNas.webp',
     web: 'https://www.abistodenas.com/',
+    topo: '',
   },
   {
     location: 'Sud-Ouest',
@@ -539,6 +585,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domainesBrumont.webp',
     web: 'https://www.brumont.fr/',
+    topo: '',
   },
   {
     location: 'Sud-Ouest',
@@ -547,6 +594,7 @@ const data = [
     color: ['Vins', 'Rosé', 'Blanc', 'Spiritueux'],
     logo: './img/logos/domaineTariquet.webp',
     web: 'http://www.tariquet.com/',
+    topo: 'L’histoire commence en 1912, lorsque Jean-Pierre Artaud et son père, qui revenait des États-Unis, ont décidé d’acheter le domaine, dont les vignes ont été ravagées par le phylloxéra. Jean-Pierre, resté aux États-Unis, revient en France en 1914 pour défendre le pays.',
   },
 ]
 
