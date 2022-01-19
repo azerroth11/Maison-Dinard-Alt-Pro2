@@ -644,25 +644,22 @@ about.addEventListener('click', () => {
 })
 
 // Logos Div logic
-const domainsArray = []
+let swiperWrapper2 = document.querySelector('.swiper-wrapper2')
 data.forEach((domain) => {
-  domainsArray.push(domain.id)
-})
-const popularLogos = [
-  data[domainsArray.indexOf('Domaines Brumont')],
-  data[domainsArray.indexOf('Domaine Tariquet')],
-  data[domainsArray.indexOf('Champagne Drappier')],
-  data[domainsArray.indexOf('Billecart-Salmon')],
-  data[domainsArray.indexOf('Domaine de la Cendrillon')],
-  data[domainsArray.indexOf('H. Cuvelier & Fils')],
-  data[domainsArray.indexOf('Château de Nages')],
-]
-const footer = document.querySelector('footer')
-const logosDiv = document.body.insertBefore(document.createElement('div'), footer)
-logosDiv.classList.add('logosDiv')
-popularLogos.forEach((domain) => {
-  const logoIMG = logosDiv.appendChild(document.createElement('img'))
+  const logoIMG = swiperWrapper2.appendChild(document.createElement('img'))
   logoIMG.src = domain.logo
   details = logoIMG
+  logoIMG.classList.add('swiper-slide')
   addClickEvent(domain, details)
+})
+
+const swiper2 = new Swiper('.swiper2', {
+  direction: 'horizontal',
+  slidesPerView: 'auto',
+  centeredSlides: false,
+  grabCursor: true,
+  navigation: {
+    prevEl: '.swiper-button-prev',
+    nextEl: '.swiper-button-next',
+  },
 })

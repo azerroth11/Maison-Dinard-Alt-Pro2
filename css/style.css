@@ -286,11 +286,29 @@ nav .navigation > a {
 /* Logos */
 .logosDiv {
   display: none;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 2rem;
   margin: 0 auto;
   max-width: 1300px;
+  position: relative;
+}
+
+.swiper2 {
+  margin: 0 4rem;
+  overflow: hidden;
+}
+
+.swiper-wrapper2 {
+  display: flex;
+  align-items: center;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  color: rgba(0, 0, 0, 1);
 }
 
 .logosDiv img {
@@ -399,7 +417,7 @@ footer p {
   }
 
   .logosDiv {
-    display: flex;
+    display: block;
   }
 
   .about {
