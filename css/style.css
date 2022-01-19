@@ -265,7 +265,7 @@ nav .navigation > a {
 .list {
   flex-direction: column;
   gap: 0.25rem;
-  max-height: 390px;
+  max-height: 400px;
   padding: 3.5rem 2.5rem 2.5rem 2.5rem;
   align-items: flex-start;
 }
