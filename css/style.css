@@ -290,7 +290,7 @@ nav .navigation > a {
 /* Logos */
 .logosDiv {
   display: none;
-  margin: 1rem auto;
+  margin: 1.5rem auto;
   max-width: 1300px;
   position: relative;
 }
