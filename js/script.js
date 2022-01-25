@@ -102,6 +102,10 @@ document.querySelector('nav').addEventListener('mouseleave', () => {
   clearRollableMenu(rollableMenu)
 })
 
+document.querySelector('body').addEventListener('click', () => {
+  clearRollableMenu(rollableMenu)
+})
+
 function orderArray(orderedArray, domainDetails) {
   orderedArray = orderedArray.filter((empty) => empty != '')
   orderedArray = [...new Set(orderedArray)]
@@ -239,7 +243,7 @@ const data = [
   {
     location: 'Bordeaux',
     id: 'Famille André Lurton',
-    products: ['AOC Pessac Leognan'],
+    products: ['Pessac Leognan'],
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/vignobles-andre-lurton.webp',
     web: 'https://boutique.andrelurton.com/',
@@ -248,7 +252,7 @@ const data = [
   {
     location: 'Bourgogne',
     id: 'Domaines Devillard',
-    products: ['AOC Mercurey'],
+    products: ['Mercurey'],
     color: ['Vins', 'Rouge', 'Blanc'],
     logo: './img/logos/domainesDevillard.webp',
     web: 'http://www.domaines-devillard.com/',
@@ -257,7 +261,7 @@ const data = [
   {
     location: 'Bourgogne',
     id: 'Domaine Nathalie & Gilles Fèvre',
-    products: ['AOC Chablis'],
+    products: ['Chablis'],
     color: ['Vins', 'Blanc'],
     logo: './img/logos/domaineFevre.webp',
     web: 'https://www.nathalieetgillesfevre.com/',
@@ -302,7 +306,7 @@ const data = [
   {
     location: 'Languedoc',
     id: 'Domaine de la Cendrillon',
-    products: ['AOC Corbières'],
+    products: ['Corbières'],
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineCendrillon.webp',
     web: 'https://www.lacendrillon.fr/en/',
@@ -374,7 +378,7 @@ const data = [
   {
     location: 'Loire',
     id: 'Domaine Laporte',
-    products: ['AOC Sancerre & Pouilly'],
+    products: ['Sancerre & Pouilly'],
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/DomaineLaporte.webp',
     web: 'https://www.laporte-sancerre.com/',
@@ -392,7 +396,7 @@ const data = [
   {
     location: 'Loire',
     id: 'Lorieux Alain & Pascal',
-    products: ['AOC St Nicolas de Bourgueil', 'Chinon'],
+    products: ['St Nicolas de Bourgueil', 'Chinon'],
     color: ['Vins', 'Rosé', 'Rouge'],
     logo: './img/logos/logolorieux_1.webp',
     web: 'http://www.lorieux.fr/',
@@ -401,7 +405,7 @@ const data = [
   {
     location: 'Loire',
     id: 'Domaine Maison Père & Fils',
-    products: ['AOC Cheverny'],
+    products: ['Cheverny'],
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineMaison.webp',
     web: 'https://www.domainemaison.com/fr/index.php',
@@ -428,7 +432,7 @@ const data = [
   {
     location: 'Provence',
     id: 'Château Pas du Cerf',
-    products: ['AOC Cotes de Provence'],
+    products: ['Cotes de Provence'],
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/chateauPasDuCerf.webp',
     web: 'https://www.pasducerf.com/',
@@ -482,7 +486,7 @@ const data = [
   {
     location: 'Rhône',
     id: 'Domaine de la Mordorée',
-    products: ['Vins du Rhône – AOC Tavel'],
+    products: ['Vins du Rhône – Tavel'],
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineMordoree.webp',
     web: 'https://www.domaine-mordoree.com/',
@@ -491,7 +495,7 @@ const data = [
   {
     location: 'Rhône',
     id: 'Domaine de Montvac',
-    products: ['AOC Vacqueyras & Gigondas'],
+    products: ['Vacqueyras & Gigondas'],
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
     logo: './img/logos/domaineDeMontvac.webp',
     web: 'https://domainedemontvac.fr/',
