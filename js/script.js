@@ -4,7 +4,7 @@ const rollableMenu = document.querySelector('.rollableMenu')
 navigationItems.forEach((a) => {
   a.addEventListener('mouseover', () => {
     // Wine
-    if (a.innerText == 'Vins' && rollableMenu.innerText == '') {
+    if (a.innerText == 'Vins') {
       clearRollableMenu(rollableMenu)
       const menuDivRegions = rollableMenu.appendChild(document.createElement('div'))
       menuDivRegions.classList.add('regions')
@@ -616,15 +616,60 @@ const swiper = new Swiper('.swiper', {
   },
 })
 
+// Contact
+const contact = document.querySelector('#contact')
+contact.addEventListener('click', () => {
+  clearRollableMenu(rollableMenu)
+  const domainResult = document.querySelector('.domainResult')
+  if (domainResult != undefined) {
+    domainResult.remove()
+  }
+  const hero = document.querySelector('.hero')
+  const resultContainer = hero.appendChild(document.createElement('div'))
+  resultContainer.classList.add('domainResult')
+  resultContainer.classList.add('contactDiv')
+  const pierrickDiv = resultContainer.appendChild(document.createElement('div'))
+  const pierrickIMG = pierrickDiv.appendChild(document.createElement('img'))
+  pierrickIMG.src = './img/Pierrick.webp'
+  const pierrickInnerDiv = pierrickDiv.appendChild(document.createElement('div'))
+  const pierrickMail = pierrickInnerDiv.appendChild(document.createElement('a'))
+  pierrickMail.innerText = 'Mail: pierrick.dinard@maisondinard.fr'
+  pierrickMail.href = 'mailto:pierrick.dinard@maisondinard.fr'
+  const pierrickTel = pierrickInnerDiv.appendChild(document.createElement('a'))
+  pierrickTel.innerText = 'Tel: +33 (0)6 51 49 08 39'
+  pierrickTel.href = 'callto:0651490839'
+  const antoineDiv = resultContainer.appendChild(document.createElement('div'))
+  const antoineIMG = antoineDiv.appendChild(document.createElement('img'))
+  antoineIMG.src = './img/antoine.webp'
+  const antoineInnerDiv = antoineDiv.appendChild(document.createElement('div'))
+  const antoineMail = antoineInnerDiv.appendChild(document.createElement('a'))
+  antoineMail.innerText = 'Mail: dinard.antoine@gmail.com'
+  antoineMail.href = 'mailto:dinard.antoine@gmail.com'
+  const antoineTel = antoineInnerDiv.appendChild(document.createElement('a'))
+  antoineTel.innerText = 'Tel: +33 (0)7 81 45 32 70'
+  antoineTel.href = 'callto:0781453270'
+  const domainCloseBtn = resultContainer.appendChild(document.createElement('i'))
+  domainCloseBtn.classList.add('fas', 'fa-times')
+  domainCloseBtn.addEventListener('click', () => {
+    resultContainer.remove()
+  })
+})
+
 // About
 const about = document.querySelector('#about')
 about.addEventListener('click', () => {
   clearRollableMenu(rollableMenu)
-  const domainDetails = document.querySelector('.domainDetails')
-  domainDetails.classList.add('aboutDiv')
-  const aboutIMG = domainDetails.appendChild(document.createElement('img'))
-  aboutIMG.src = './img/pierrick.jpg'
-  const aboutInnerDiv = domainDetails.appendChild(document.createElement('div'))
+  const domainResult = document.querySelector('.domainResult')
+  if (domainResult != undefined) {
+    domainResult.remove()
+  }
+  const hero = document.querySelector('.hero')
+  const resultContainer = hero.appendChild(document.createElement('div'))
+  resultContainer.classList.add('domainResult')
+  resultContainer.classList.add('aboutDiv')
+  const aboutIMG = resultContainer.appendChild(document.createElement('img'))
+  aboutIMG.src = './img/pierrick.webp'
+  const aboutInnerDiv = resultContainer.appendChild(document.createElement('div'))
   const aboutP1 = aboutInnerDiv.appendChild(document.createElement('p'))
   aboutP1.innerHTML =
     'Passionné par l’univers du vin et ayant une formation d’oenologie et de viticulture, <b>Pierrick Dinard</b> s’est installé en tant qu’agent commercial en vins, champagnes et spiritueux dans les Yvelines.'
@@ -640,7 +685,11 @@ about.addEventListener('click', () => {
   const contact = aboutInnerDiv.appendChild(document.createElement('a'))
   contact.innerText = 'Contactez-nous'
   contact.href = 'mailto:pierrick.dinard@maisondinard.fr'
-  contact.addEventListener('click', () => {})
+  const domainCloseBtn = resultContainer.appendChild(document.createElement('i'))
+  domainCloseBtn.classList.add('fas', 'fa-times')
+  domainCloseBtn.addEventListener('click', () => {
+    resultContainer.remove()
+  })
 })
 
 // Logos Div logic

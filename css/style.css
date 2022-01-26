@@ -287,6 +287,26 @@ nav .navigation > a {
   font-size: 1.5rem;
 }
 
+/* Contact */
+.contactDiv {
+  border: none;
+}
+
+.contactDiv > div {
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+}
+
+.contactDiv div img {
+  border-radius: 20px;
+}
+
+.contactDiv a {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  max-width: 400px;
+}
+
 /* Logos */
 .logosDiv {
   display: none;
@@ -309,6 +329,7 @@ nav .navigation > a {
 .swiper-button-prev,
 .swiper-button-next {
   color: rgba(0, 0, 0, 0.5);
+  z-index: 5;
 }
 
 .swiper-button-prev:hover,
