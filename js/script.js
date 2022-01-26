@@ -102,10 +102,6 @@ document.querySelector('nav').addEventListener('mouseleave', () => {
   clearRollableMenu(rollableMenu)
 })
 
-document.querySelector('body').addEventListener('click', () => {
-  clearRollableMenu(rollableMenu)
-})
-
 function orderArray(orderedArray, domainDetails) {
   orderedArray = orderedArray.filter((empty) => empty != '')
   orderedArray = [...new Set(orderedArray)]
