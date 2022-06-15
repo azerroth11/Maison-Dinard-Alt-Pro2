@@ -210,21 +210,12 @@ const data = [
   },
   {
     location: 'Bordeaux',
-    id: 'Domaines Select',
-    products: [''],
-    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
-    logo: '',
-    web: '',
-    topo: '',
-  },
-  {
-    location: 'Bordeaux',
     id: 'Gironde et Gascogne',
     products: [''],
     color: ['Vins', 'Rouge'],
     logo: './img/logos/girondeEtGascogne.webp',
     web: 'https://www.gironde-et-gascogne.com/',
-    topo: '',
+    topo: 'Propriétaires de deux grands châteaux dans le bordelais : le Château Ramage La Bâtisse AOC Haut Médoc Cru Bourgeois, régulièrement cité comme l’un des tous meilleurs de cette appellation et le Château de Belcier, AOC Castillon-Côtes de Bordeaux, faisant partie des 5 meilleurs Castillon-Côtes de Bordeaux (appellation qui jouxte Saint-Emilion).',
   },
   {
     location: 'Bordeaux',
@@ -530,8 +521,8 @@ const data = [
     products: ['Spiritueux'],
     color: ['Spiritueux'],
     logo: './img/logos/dirumDzama.webp',
-    web: '',
-    topo: '',
+    web: 'https://dirum.eu/',
+    topo: 'L’histoire des rhums Dzama commence en 1982 sur l’île de Nosy-Be à Madagascar. Lucien Fohine s’y installe et développe son activité à partir de la distillerie de Dzamandzar.',
   },
   {
     location: 'Spiritueux',
@@ -540,7 +531,7 @@ const data = [
     color: ['Spiritueux'],
     logo: './img/logos/whiskiesDuMonde.webp',
     web: 'https://www.whiskiesdumonde.fr/fr/',
-    topo: '',
+    topo: 'Whiskies du Monde est un créateur, importateur et distributeur sélectif de spiritueux haut de gamme venant des quatre coins du monde.',
   },
   {
     location: 'Spiritueux',
@@ -549,7 +540,7 @@ const data = [
     color: ['Spiritueux'],
     logo: './img/logos/pardelaSpirits.webp',
     web: 'https://www.pardelaspirits.fr/',
-    topo: '',
+    topo: "Pardela Spirits c'est la volonté de réunir une gamme de spiritueux artisans (« craft spirits ») uniques, novateurs et qualitatifs sous une même entité.",
   },
   {
     location: 'Spiritueux',
@@ -558,7 +549,7 @@ const data = [
     color: ['Spiritueux'],
     logo: './img/logos/moonHarbor.webp',
     web: 'http://moonharbour.fr/',
-    topo: '',
+    topo: 'Spiritueux premium élaboré sur un alambic exclusif haut de gamme construit localement, en une seule et unique distillation lente et méthodique.',
   },
   {
     location: 'Spiritueux',
@@ -566,8 +557,8 @@ const data = [
     products: ['Spiritueux'],
     color: ['Spiritueux'],
     logo: './img/logos/raymondRagnaud.webp',
-    web: '',
-    topo: '',
+    web: 'https://www.raymondragnaud.fr/',
+    topo: 'En 1860, la famille Raymond RAGNAUD possédait un petit vignoble en Grande Champagne, cru le plus prisé pour la qualité de ses eaux de vie, particulièrement apte au vieillissement, planté uniquement en Ugni-Blanc et Folle Blanche, meilleurs cépages du vignoble charentais.',
   },
   {
     location: 'Sud-Ouest',
