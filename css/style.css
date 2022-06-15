@@ -140,22 +140,12 @@ nav .navigation > a {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  padding: 3rem 0 2rem 2rem;
-  width: 85%;
-}
-
-.rollableMenu .regions,
-.rollableMenu .domains {
-  padding: 3rem 2rem 2rem 2rem;
+  padding: 3rem 1rem;
+  width: 67.5%;
 }
 
 .rollableMenu .regions {
-  width: 15%;
-}
-
-.rollableMenu .domains {
-  flex-direction: row;
-  flex-wrap: wrap;
+  width: 32.5%;
 }
 
 .rollableMenu .domains .domainLogo {
@@ -163,7 +153,7 @@ nav .navigation > a {
   max-width: 20%;
   max-height: 150px;
   object-fit: contain;
-  margin: 0 1rem;
+  margin: 0 auto;
   scale: 1;
 }
 
@@ -476,5 +466,10 @@ footer p {
 
   .about {
     display: block;
+  }
+
+  .rollableMenu .domains {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
