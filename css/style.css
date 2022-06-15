@@ -141,7 +141,35 @@ nav .navigation > a {
   flex-direction: column;
   gap: 0.5rem;
   padding: 3rem 0 2rem 2rem;
-  max-width: 60%;
+  width: 85%;
+}
+
+.rollableMenu .regions,
+.rollableMenu .domains {
+  padding: 3rem 2rem 2rem 2rem;
+}
+
+.rollableMenu .regions {
+  width: 15%;
+}
+
+.rollableMenu .domains {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.rollableMenu .domains .domainLogo {
+  transition: scale 0.5s;
+  max-width: 20%;
+  max-height: 150px;
+  object-fit: contain;
+  margin: 0 1rem;
+  scale: 1;
+}
+
+.rollableMenu .domains .domainLogo:hover {
+  cursor: pointer;
+  scale: 1.05;
 }
 
 .rollableMenu div p {

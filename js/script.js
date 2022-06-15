@@ -19,7 +19,7 @@ navigationItems.forEach((a) => {
             const regionList = menuDivRegions.appendChild(document.createElement('a'))
             regionList.href = 'javascript:;'
             regionList.innerText = domain.location
-            regionList.addEventListener('click', () => {
+            regionList.addEventListener('mouseover', () => {
               if (document.querySelector('.domains') == null) {
                 const menuDivDomains = rollableMenu.appendChild(document.createElement('div'))
                 menuDivDomains.classList.add('domains')
@@ -30,10 +30,17 @@ navigationItems.forEach((a) => {
               const menuDomains = menuDivDomains.appendChild(document.createElement('p'))
               menuDomains.innerText = 'Domaines'
               data.forEach((domain) => {
-                if (regionList.innerText == domain.location) {
+                if (regionList.innerText == domain.location && window.innerWidth <= 480) {
                   const domainItem = menuDivDomains.appendChild(document.createElement('a'))
                   domainItem.href = 'javascript:;'
                   domainItem.innerText = domain.id
+                  const details = domainItem
+                  addClickEvent(domain, details)
+                } else if (regionList.innerText == domain.location && window.innerWidth > 480) {
+                  const domainItem = menuDivDomains.appendChild(document.createElement('img'))
+                  domainItem.href = 'javascript:;'
+                  domainItem.src = domain.logo
+                  domainItem.classList.add('domainLogo')
                   const details = domainItem
                   addClickEvent(domain, details)
                 }
