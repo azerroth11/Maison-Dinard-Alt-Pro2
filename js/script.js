@@ -106,7 +106,7 @@ navigationItems.forEach((a) => {
 })
 
 document.querySelector('nav').addEventListener('mouseleave', () => {
-  // clearRollableMenu(rollableMenu)
+  clearRollableMenu(rollableMenu)
 })
 
 function orderArray(orderedArray, domainDetails) {
