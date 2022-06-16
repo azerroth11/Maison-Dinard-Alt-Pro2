@@ -140,12 +140,13 @@ nav .navigation > a {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  padding: 3rem 1rem;
-  width: 67.5%;
+  padding: 3rem 2rem;
+  width: 80%;
 }
 
 .rollableMenu .regions {
-  width: 32.5%;
+  width: 20%;
+  min-width: 155px;
 }
 
 .rollableMenu .domains .domainLogo {
@@ -153,7 +154,7 @@ nav .navigation > a {
   max-width: 20%;
   max-height: 150px;
   object-fit: contain;
-  margin: 0 auto;
+  margin: 0 1rem;
   scale: 1;
 }
 
