@@ -150,9 +150,16 @@ function clearRollableMenu(rollableMenu) {
   rollableMenu.classList = 'rollableMenu'
 }
 
+function clearAboutDiv() {
+  if (document.querySelector('.aboutDiv') != undefined) {
+    document.querySelector('.aboutDiv').remove()
+  }
+}
+
 function addClickEvent(domain, details) {
   details.addEventListener('click', () => {
     clearRollableMenu(rollableMenu)
+    clearAboutDiv()
     const domainResult = document.querySelector('.domainResult')
     if (domainResult != undefined) {
       domainResult.remove()
@@ -657,53 +664,51 @@ contact.addEventListener('click', () => {
 const about = document.querySelector('#about')
 about.addEventListener('click', () => {
   clearRollableMenu(rollableMenu)
-  const domainResult = document.querySelector('.domainResult')
-  if (domainResult != undefined) {
-    domainResult.remove()
-  }
-  const hero = document.querySelector('.hero')
-  const aboutDiv = hero.appendChild(document.createElement('div'))
-  aboutDiv.classList.add('aboutDiv')
-  // aboutDivChild
-  const aboutDivChild = aboutDiv.appendChild(document.createElement('div'))
-  aboutDivChild.classList.add('aboutDivChild')
-  const aboutIMG = aboutDivChild.appendChild(document.createElement('img'))
-  aboutIMG.src = './img/pierrick.webp'
-  const aboutInnerDiv = aboutDivChild.appendChild(document.createElement('div'))
-  const aboutP1 = aboutInnerDiv.appendChild(document.createElement('p'))
-  aboutP1.innerHTML =
-    'Passionné par l’univers du vin et ayant une formation d’oenologie et de viticulture, <b>Pierrick Dinard</b> s’est installé en tant qu’agent commercial en vins, champagnes et spiritueux dans les Yvelines.'
-  const aboutP2 = aboutInnerDiv.appendChild(document.createElement('p'))
-  aboutP2.innerHTML =
-    'L’agence commerciale a été créée en 2014 afin de distribuer sur les Yvelines des domaines et <b>des vins sélectionnés pour leur caractère authentique</b>.'
-  const aboutP3 = aboutInnerDiv.appendChild(document.createElement('p'))
-  aboutP3.innerHTML =
-    'Il exerce son métier d’agent commercial avec passion pour répondre aux attentes des professionnels de la restauration et du goût ainsi que pour les cavistes indépendants dans les Yvelines et les Hauts de Seine. Son principal objectif est de <b>valoriser le travail des vignerons</b>.'
-  const aboutP4 = aboutInnerDiv.appendChild(document.createElement('p'))
-  aboutP4.innerHTML =
-    'Ainsi il met en valeur des cuvées qui expriment un terroir et la personnalité des vignerons qui les ont élaborées. Il a choisi de collaborer avec des <b>vignerons respectueux de leur terroir</b>, avec notamment un large gamme de vins bio, vignerons qu’il visite et qu’il suit, dans un esprit de réel partenariat et de partage de savoir-vivre.'
-  const contact = aboutInnerDiv.appendChild(document.createElement('a'))
-  contact.innerText = 'Contactez-nous'
-  contact.href = 'mailto:pierrick.dinard@maisondinard.fr'
-  // aboutClients
-  const aboutClients = aboutDiv.appendChild(document.createElement('div'))
-  aboutClients.classList.add('aboutClients')
-  const clients = aboutClients.appendChild(document.createElement('h2'))
-  clients.innerText = 'Nos clients:'
-  const aboutClientsLogoDiv = aboutClients.appendChild(document.createElement('div'))
-  aboutClientsLogoDiv.classList.add('aboutClientsLogoDiv')
-  const clientLogo1 = aboutClientsLogoDiv.appendChild(document.createElement('img'))
-  clientLogo1.src = './img/clientsLogo/hotels.webp'
-  const clientLogo2 = aboutClientsLogoDiv.appendChild(document.createElement('img'))
-  clientLogo2.src = './img/clientsLogo/caviste.webp'
-  const clientLogo3 = aboutClientsLogoDiv.appendChild(document.createElement('img'))
-  clientLogo3.src = './img/clientsLogo/restaurant.webp'
+  if (document.querySelector('.aboutDiv') == undefined) {
+    const hero = document.querySelector('.hero')
+    const aboutDiv = hero.appendChild(document.createElement('div'))
+    aboutDiv.classList.add('aboutDiv')
+    // aboutDivChild
+    const aboutDivChild = aboutDiv.appendChild(document.createElement('div'))
+    aboutDivChild.classList.add('aboutDivChild')
+    const aboutIMG = aboutDivChild.appendChild(document.createElement('img'))
+    aboutIMG.src = './img/pierrick.webp'
+    const aboutInnerDiv = aboutDivChild.appendChild(document.createElement('div'))
+    const aboutP1 = aboutInnerDiv.appendChild(document.createElement('p'))
+    aboutP1.innerHTML =
+      'Passionné par l’univers du vin et ayant une formation d’oenologie et de viticulture, <b>Pierrick Dinard</b> s’est installé en tant qu’agent commercial en vins, champagnes et spiritueux dans les Yvelines.'
+    const aboutP2 = aboutInnerDiv.appendChild(document.createElement('p'))
+    aboutP2.innerHTML =
+      'L’agence commerciale a été créée en 2014 afin de distribuer sur les Yvelines des domaines et <b>des vins sélectionnés pour leur caractère authentique</b>.'
+    const aboutP3 = aboutInnerDiv.appendChild(document.createElement('p'))
+    aboutP3.innerHTML =
+      'Il exerce son métier d’agent commercial avec passion pour répondre aux attentes des professionnels de la restauration et du goût ainsi que pour les cavistes indépendants dans les Yvelines et les Hauts de Seine. Son principal objectif est de <b>valoriser le travail des vignerons</b>.'
+    const aboutP4 = aboutInnerDiv.appendChild(document.createElement('p'))
+    aboutP4.innerHTML =
+      'Ainsi il met en valeur des cuvées qui expriment un terroir et la personnalité des vignerons qui les ont élaborées. Il a choisi de collaborer avec des <b>vignerons respectueux de leur terroir</b>, avec notamment un large gamme de vins bio, vignerons qu’il visite et qu’il suit, dans un esprit de réel partenariat et de partage de savoir-vivre.'
+    const contact = aboutInnerDiv.appendChild(document.createElement('a'))
+    contact.innerText = 'Contactez-nous'
+    contact.href = 'mailto:pierrick.dinard@maisondinard.fr'
+    // aboutClients
+    const aboutClients = aboutDiv.appendChild(document.createElement('div'))
+    aboutClients.classList.add('aboutClients')
+    const clients = aboutClients.appendChild(document.createElement('h2'))
+    clients.innerText = 'Nos clients:'
+    const aboutClientsLogoDiv = aboutClients.appendChild(document.createElement('div'))
+    aboutClientsLogoDiv.classList.add('aboutClientsLogoDiv')
+    const clientLogo1 = aboutClientsLogoDiv.appendChild(document.createElement('img'))
+    clientLogo1.src = './img/clientsLogo/hotels.webp'
+    const clientLogo2 = aboutClientsLogoDiv.appendChild(document.createElement('img'))
+    clientLogo2.src = './img/clientsLogo/caviste.webp'
+    const clientLogo3 = aboutClientsLogoDiv.appendChild(document.createElement('img'))
+    clientLogo3.src = './img/clientsLogo/restaurant.webp'
 
-  const domainCloseBtn = aboutDiv.appendChild(document.createElement('i'))
-  domainCloseBtn.classList.add('fas', 'fa-times')
-  domainCloseBtn.addEventListener('click', () => {
-    aboutDiv.remove()
-  })
+    const domainCloseBtn = aboutDiv.appendChild(document.createElement('i'))
+    domainCloseBtn.classList.add('fas', 'fa-times')
+    domainCloseBtn.addEventListener('click', () => {
+      aboutDiv.remove()
+    })
+  }
 })
 
 // Logos Div logic
