@@ -259,17 +259,19 @@ nav .navigation > a {
   scale: 1.03;
 }
 
-.domainResult i:hover {
-  cursor: pointer;
-  text-shadow: 0 0 2px #000;
-}
-
-.domainResult i {
+.domainResult i,
+.aboutDiv i {
   position: absolute;
   top: 3rem;
   right: 1.5rem;
   font-size: 30px;
   transition: scale 0.2s;
+}
+
+.domainResult i:hover,
+.aboutDiv i:hover {
+  cursor: pointer;
+  text-shadow: 0 0 2px #000;
 }
 
 .domainResult i p {
@@ -371,17 +373,49 @@ nav .navigation > a {
 /* About */
 .aboutDiv {
   border: none;
-  min-height: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 0;
+  min-height: 100%;
+  width: 100%;
+  opacity: 100%;
+  z-index: 9;
+  background-color: #fff;
 }
 
-.aboutDiv > img {
+.aboutDivChild {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  min-height: 100%;
+  width: 100%;
+  opacity: 100%;
+  gap: 2rem;
+  background-color: #fff;
+}
+
+.aboutDivChild div {
+  display: grid;
+  padding: 1rem;
+}
+
+.aboutDivChild div p {
+  margin-top: 1rem;
+  max-width: 50ch;
+}
+
+.aboutDivChild img {
   max-height: 500px;
   max-width: none;
   padding: 0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
-.aboutDiv a {
+.aboutDivChild a {
   padding: 0.75rem 2rem;
   width: fit-content;
   max-width: none;
@@ -392,8 +426,31 @@ nav .navigation > a {
   margin: 2rem auto;
 }
 
-.aboutDiv a:hover {
+.aboutDivChild a:hover {
   scale: 1.02;
+}
+
+.aboutClients {
+  padding: 0 1rem 2rem 1rem;
+  width: 100%;
+}
+
+.aboutClients h2 {
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.aboutClients .aboutClientsLogoDiv {
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.aboutClients img {
+  max-width: 100px;
+  object-fit: contain;
 }
 
 /* Footer */

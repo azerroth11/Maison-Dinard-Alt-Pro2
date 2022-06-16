@@ -662,12 +662,14 @@ about.addEventListener('click', () => {
     domainResult.remove()
   }
   const hero = document.querySelector('.hero')
-  const resultContainer = hero.appendChild(document.createElement('div'))
-  resultContainer.classList.add('domainResult')
-  resultContainer.classList.add('aboutDiv')
-  const aboutIMG = resultContainer.appendChild(document.createElement('img'))
+  const aboutDiv = hero.appendChild(document.createElement('div'))
+  aboutDiv.classList.add('aboutDiv')
+  // aboutDivChild
+  const aboutDivChild = aboutDiv.appendChild(document.createElement('div'))
+  aboutDivChild.classList.add('aboutDivChild')
+  const aboutIMG = aboutDivChild.appendChild(document.createElement('img'))
   aboutIMG.src = './img/pierrick.webp'
-  const aboutInnerDiv = resultContainer.appendChild(document.createElement('div'))
+  const aboutInnerDiv = aboutDivChild.appendChild(document.createElement('div'))
   const aboutP1 = aboutInnerDiv.appendChild(document.createElement('p'))
   aboutP1.innerHTML =
     'Passionné par l’univers du vin et ayant une formation d’oenologie et de viticulture, <b>Pierrick Dinard</b> s’est installé en tant qu’agent commercial en vins, champagnes et spiritueux dans les Yvelines.'
@@ -683,10 +685,24 @@ about.addEventListener('click', () => {
   const contact = aboutInnerDiv.appendChild(document.createElement('a'))
   contact.innerText = 'Contactez-nous'
   contact.href = 'mailto:pierrick.dinard@maisondinard.fr'
-  const domainCloseBtn = resultContainer.appendChild(document.createElement('i'))
+  // aboutClients
+  const aboutClients = aboutDiv.appendChild(document.createElement('div'))
+  aboutClients.classList.add('aboutClients')
+  const clients = aboutClients.appendChild(document.createElement('h2'))
+  clients.innerText = 'Nos clients:'
+  const aboutClientsLogoDiv = aboutClients.appendChild(document.createElement('div'))
+  aboutClientsLogoDiv.classList.add('aboutClientsLogoDiv')
+  const clientLogo1 = aboutClientsLogoDiv.appendChild(document.createElement('img'))
+  clientLogo1.src = './img/clientsLogo/hotels.webp'
+  const clientLogo2 = aboutClientsLogoDiv.appendChild(document.createElement('img'))
+  clientLogo2.src = './img/clientsLogo/caviste.webp'
+  const clientLogo3 = aboutClientsLogoDiv.appendChild(document.createElement('img'))
+  clientLogo3.src = './img/clientsLogo/restaurant.webp'
+
+  const domainCloseBtn = aboutDiv.appendChild(document.createElement('i'))
   domainCloseBtn.classList.add('fas', 'fa-times')
   domainCloseBtn.addEventListener('click', () => {
-    resultContainer.remove()
+    aboutDiv.remove()
   })
 })
 
