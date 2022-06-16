@@ -140,13 +140,13 @@ nav .navigation > a {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  padding: 3rem 2rem;
-  width: 80%;
+  padding: 3rem 1rem;
+  width: 62.5%;
 }
 
 .rollableMenu .regions {
   width: 20%;
-  min-width: 155px;
+  min-width: 140px;
 }
 
 .rollableMenu .domains .domainLogo {
@@ -467,6 +467,14 @@ footer p {
 
   .about {
     display: block;
+  }
+
+  .rollableMenu div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 3rem 2rem;
+    width: 80%;
   }
 
   .rollableMenu .domains {
