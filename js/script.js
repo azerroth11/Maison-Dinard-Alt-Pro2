@@ -645,7 +645,7 @@ contact.addEventListener('click', () => {
   pierrickTel.href = 'callto:0651490839'
   const antoineDiv = resultContainer.appendChild(document.createElement('div'))
   const antoineIMG = antoineDiv.appendChild(document.createElement('img'))
-  antoineIMG.src = './img/antoine.webp'
+  antoineIMG.src = './img/Antoine.webp'
   const antoineInnerDiv = antoineDiv.appendChild(document.createElement('div'))
   const antoineMail = antoineInnerDiv.appendChild(document.createElement('a'))
   antoineMail.innerText = 'Mail: dinard.antoine@gmail.com'
@@ -672,7 +672,7 @@ about.addEventListener('click', () => {
     const aboutDivChild = aboutDiv.appendChild(document.createElement('div'))
     aboutDivChild.classList.add('aboutDivChild')
     const aboutIMG = aboutDivChild.appendChild(document.createElement('img'))
-    aboutIMG.src = './img/pierrick.webp'
+    aboutIMG.src = './img/Pierrick.webp'
     const aboutInnerDiv = aboutDivChild.appendChild(document.createElement('div'))
     const aboutP1 = aboutInnerDiv.appendChild(document.createElement('p'))
     aboutP1.innerHTML =
