@@ -653,11 +653,12 @@ contact.addEventListener('click', () => {
   const antoineTel = antoineInnerDiv.appendChild(document.createElement('a'))
   antoineTel.innerText = 'Tel: +33 (0)7 81 45 32 70'
   antoineTel.href = 'callto:0781453270'
-  const domainCloseBtn = resultContainer.appendChild(document.createElement('i'))
-  domainCloseBtn.classList.add('fas', 'fa-times')
-  domainCloseBtn.addEventListener('click', () => {
-    resultContainer.remove()
-  })
+
+  // const domainCloseBtn = resultContainer.appendChild(document.createElement('i'))
+  // domainCloseBtn.classList.add('fas', 'fa-times')
+  // domainCloseBtn.addEventListener('click', () => {
+  //   resultContainer.remove()
+  // })
 })
 
 // About
@@ -703,11 +704,11 @@ about.addEventListener('click', () => {
     const clientLogo3 = aboutClientsLogoDiv.appendChild(document.createElement('img'))
     clientLogo3.src = './img/clientsLogo/restaurant.webp'
 
-    const domainCloseBtn = aboutDiv.appendChild(document.createElement('i'))
-    domainCloseBtn.classList.add('fas', 'fa-times')
-    domainCloseBtn.addEventListener('click', () => {
-      aboutDiv.remove()
-    })
+    // const domainCloseBtn = aboutDiv.appendChild(document.createElement('i'))
+    // domainCloseBtn.classList.add('fas', 'fa-times')
+    // domainCloseBtn.addEventListener('click', () => {
+    //   aboutDiv.remove()
+    // })
   }
 })
 
