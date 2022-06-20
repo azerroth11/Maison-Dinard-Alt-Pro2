@@ -187,10 +187,16 @@ nav .navigation > a {
   width: 100%;
   opacity: 100%;
   z-index: 9;
-  padding: 3rem 2rem;
+  padding: 0 2rem;
   gap: 2rem;
   border: 2px solid black;
   background-color: #fff;
+  background-size: cover !important;
+}
+
+.domainResult div p {
+  color: white;
+  font-weight: bold;
 }
 
 .navResults {
@@ -210,6 +216,7 @@ nav .navigation > a {
   width: 350px;
   max-height: 250px;
   object-fit: contain;
+  filter: grayscale(1) invert(1);
 }
 
 .domainResult a {
@@ -236,8 +243,7 @@ nav .navigation > a {
 }
 
 .domainResult div h1 {
-  color: var(--secondary);
-  text-align: center;
+  color: #fff;
 }
 
 .domainResult div p:not(i p) {
@@ -259,17 +265,16 @@ nav .navigation > a {
   scale: 1.03;
 }
 
-.domainResult i,
-.aboutDiv i {
+.domainResult i {
   position: absolute;
   top: 3rem;
   right: 1.5rem;
   font-size: 30px;
   transition: scale 0.2s;
+  color: #fff;
 }
 
-.domainResult i:hover,
-.aboutDiv i:hover {
+.domainResult i:hover {
   cursor: pointer;
   text-shadow: 0 0 2px #000;
 }

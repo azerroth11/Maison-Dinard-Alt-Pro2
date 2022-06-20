@@ -150,16 +150,17 @@ function clearRollableMenu(rollableMenu) {
   rollableMenu.classList = 'rollableMenu'
 }
 
-function clearAboutDiv() {
-  if (document.querySelector('.aboutDiv') != undefined) {
-    document.querySelector('.aboutDiv').remove()
+function clearHeroLastChild() {
+  const hero = document.querySelector('.hero')
+  if (hero.lastElementChild.classList[0] != 'swiper-pagination') {
+    hero.lastElementChild.remove()
   }
 }
 
 function addClickEvent(domain, details) {
   details.addEventListener('click', () => {
     clearRollableMenu(rollableMenu)
-    clearAboutDiv()
+    clearHeroLastChild()
     const domainResult = document.querySelector('.domainResult')
     if (domainResult != undefined) {
       domainResult.remove()
@@ -185,6 +186,7 @@ function addClickEvent(domain, details) {
       domainLink.href = domain.web
       domainLink.target = '_blank'
     }
+    resultContainer.style = `background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/domainesBG/${domain.id}.webp') center no-repeat;`
     const domainCloseBtn = resultContainer.appendChild(document.createElement('i'))
     domainCloseBtn.classList.add('fas', 'fa-times')
     domainCloseBtn.addEventListener('click', () => {
@@ -625,10 +627,7 @@ const swiper = new Swiper('.swiper', {
 const contact = document.querySelector('#contact')
 contact.addEventListener('click', () => {
   clearRollableMenu(rollableMenu)
-  const domainResult = document.querySelector('.domainResult')
-  if (domainResult != undefined) {
-    domainResult.remove()
-  }
+  clearHeroLastChild()
   const hero = document.querySelector('.hero')
   const resultContainer = hero.appendChild(document.createElement('div'))
   resultContainer.classList.add('domainResult')
@@ -653,18 +652,13 @@ contact.addEventListener('click', () => {
   const antoineTel = antoineInnerDiv.appendChild(document.createElement('a'))
   antoineTel.innerText = 'Tel: +33 (0)7 81 45 32 70'
   antoineTel.href = 'callto:0781453270'
-
-  // const domainCloseBtn = resultContainer.appendChild(document.createElement('i'))
-  // domainCloseBtn.classList.add('fas', 'fa-times')
-  // domainCloseBtn.addEventListener('click', () => {
-  //   resultContainer.remove()
-  // })
 })
 
 // About
 const about = document.querySelector('#about')
 about.addEventListener('click', () => {
   clearRollableMenu(rollableMenu)
+  clearHeroLastChild()
   if (document.querySelector('.aboutDiv') == undefined) {
     const hero = document.querySelector('.hero')
     const aboutDiv = hero.appendChild(document.createElement('div'))
@@ -703,12 +697,6 @@ about.addEventListener('click', () => {
     clientLogo2.src = './img/clientsLogo/caviste.webp'
     const clientLogo3 = aboutClientsLogoDiv.appendChild(document.createElement('img'))
     clientLogo3.src = './img/clientsLogo/restaurant.webp'
-
-    // const domainCloseBtn = aboutDiv.appendChild(document.createElement('i'))
-    // domainCloseBtn.classList.add('fas', 'fa-times')
-    // domainCloseBtn.addEventListener('click', () => {
-    //   aboutDiv.remove()
-    // })
   }
 })
 
