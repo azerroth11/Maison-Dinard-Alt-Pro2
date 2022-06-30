@@ -199,15 +199,6 @@ function addClickEvent(domain, details) {
 const data = [
   {
     location: 'Beaujolais',
-    id: 'Domaine Dubost',
-    products: ['Vins de Bourgogne'],
-    color: ['Vins', 'Rouge'],
-    logo: './img/logos/domaineDubost.webp',
-    web: 'https://www.domainedubost.com/',
-    topo: 'Connu également sous le nom de Domaine du Tracot, Jean-Paul Dubost est un viticulteur dynamique possédant des vignes sur plusieurs crus (Moulin-à-Vent, Fleurie, Brouilly, Morgon et Régnié). Il ne néglige pas pour autant l’appellation de base Beaujolais-Villages, produisant des vins toujours vigoureux et parfumés. Il est aujourd’hui épaulé par ses deux fils, Corentin et Joffrey.',
-  },
-  {
-    location: 'Beaujolais',
     id: 'Château de Pizay',
     products: ['Morgon', 'Beaujolais', 'Bourgogne'],
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
@@ -232,16 +223,6 @@ const data = [
     logo: './img/logos/girondeEtGascogne.webp',
     web: 'https://www.gironde-et-gascogne.com/',
     topo: 'Propriétaires de deux grands châteaux dans le bordelais : le Château Ramage La Bâtisse AOC Haut Médoc Cru Bourgeois, régulièrement cité comme l’un des tous meilleurs de cette appellation et le Château de Belcier, AOC Castillon-Côtes de Bordeaux, faisant partie des 5 meilleurs Castillon-Côtes de Bordeaux (appellation qui jouxte Saint-Emilion).',
-  },
-  {
-    location: 'Bordeaux',
-    id: 'Château Tourteau Chollet',
-    products: [''],
-    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
-    logo: './img/logos/tourteauChollet.webp',
-    topo: 'Depuis sa création vers 1760, le Château Tourteau Chollet bénéficie de la qualité de son terroir et est reconnu pour être un des plus grands crus de Graves dès 1943. Un terroir fabuleux : un plateau sablo graveleux de la troisième terrasse de la Garonne, où aime s’épanouir la vigne. Sur ce terroir imprégné par les senteurs boisées de la forêt Landaise, la propriété bénéficie, au cœur des Graves, d’une situation idyllique, pour produire des vins soyeux et gourmands, tout en élégance.',
-    web: 'https://lesvignoblesdemaxime.com/',
-    topo: 'Situé dans les Graves à Bordeaux sur un sous-sol argileux-sableux, Château Tourteau Chollet est une propriété familiale depuis 20 ans.',
   },
   {
     location: 'Bordeaux',
@@ -371,15 +352,6 @@ const data = [
   },
   {
     location: 'Loire',
-    id: 'Domaine Filliatreau',
-    products: [''],
-    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
-    logo: './img/logos/domaineFilliatreau.webp',
-    web: 'https://www.domaine-filliatreau.com/',
-    topo: 'La famille Filliatreau joue un rôle moteur dans la production des vins rouges du Saumurois. Le domaine s’affirme sur les plus grandes tables comme l’un des emblèmes du Val de Loire.',
-  },
-  {
-    location: 'Loire',
     id: 'Domaine Laporte',
     products: ['Sancerre & Pouilly'],
     color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
@@ -422,15 +394,6 @@ const data = [
     logo: './img/logos/sagetLaPerriere.webp',
     web: 'https://www.sagetlaperriere.fr/',
     topo: "C'est au cœur du village de Pouilly-sur -Loire que la famille Saget perpétue son savoir-faire depuis maintenant 9 générations. Fruit du regroupement des meilleures parcelles de la famille, le Domaine Saget s'étend sur des lieux dits prestigieux de l'appellation Pouilly Fumé.",
-  },
-  {
-    location: 'Loire',
-    id: 'Domaines Tatin',
-    products: [''],
-    color: ['Vins', 'Rosé', 'Rouge', 'Blanc'],
-    logo: './img/logos/domainesTatin.webp',
-    web: 'https://www.domaines-tatin.com/',
-    topo: "En plein Centre de la France entre le Cher et L'Indre, Les vignes des Domaines Tatin s’étendent sur les rives du Cher pour les Sauvignons blancs de Quincy et de bords de l'Arnon pour les Pinots noir, les Pinots gris et les Sauvignons blancs de Reuilly.",
   },
   {
     location: 'Provence',
@@ -548,15 +511,6 @@ const data = [
     logo: './img/logos/whiskiesDuMonde.webp',
     web: 'https://www.whiskiesdumonde.fr/fr/',
     topo: 'Whiskies du Monde est un créateur, importateur et distributeur sélectif de spiritueux haut de gamme venant des quatre coins du monde.',
-  },
-  {
-    location: 'Spiritueux',
-    id: 'Pardela Spirits',
-    products: ['Spiritueux'],
-    color: ['Spiritueux'],
-    logo: './img/logos/pardelaSpirits.webp',
-    web: 'https://www.pardelaspirits.fr/',
-    topo: "Pardela Spirits c'est la volonté de réunir une gamme de spiritueux artisans (« craft spirits ») uniques, novateurs et qualitatifs sous une même entité.",
   },
   {
     location: 'Spiritueux',
