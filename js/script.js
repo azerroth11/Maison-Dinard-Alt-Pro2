@@ -235,6 +235,15 @@ const data = [
   },
   {
     location: 'Bourgogne',
+    id: 'Antonin Guyon',
+    products: ['Chardonay', 'Bourgogne'],
+    color: ['Vins', 'Rouge', 'Blanc'],
+    logo: './img/logos/antoninGuyon.webp',
+    web: 'https://www.guyon-bourgogne.com/',
+    topo: "Parmi les crus les plus renommés de la Côte d'Or, le Domaine Antonin Guyon, propriété de la famille depuis des générations, s'étend sur près de 50 hectares.",
+  },
+  {
+    location: 'Bourgogne',
     id: 'Domaines Devillard',
     products: ['Mercurey'],
     color: ['Vins', 'Rouge', 'Blanc'],
@@ -529,6 +538,15 @@ const data = [
     logo: './img/logos/raymondRagnaud.webp',
     web: 'https://www.raymondragnaud.fr/',
     topo: 'En 1860, la famille Raymond RAGNAUD possédait un petit vignoble en Grande Champagne, cru le plus prisé pour la qualité de ses eaux de vie, particulièrement apte au vieillissement, planté uniquement en Ugni-Blanc et Folle Blanche, meilleurs cépages du vignoble charentais.',
+  },
+  {
+    location: 'Spiritueux',
+    id: 'Sacade',
+    products: ['Spiritueux'],
+    color: ['Spiritueux'],
+    logo: './img/logos/sacade.webp',
+    web: 'https://sacadespirit.com/',
+    topo: 'Spécialisée dans l’importation et la distribution de spiritueux auprès de professionnels en France et sur les marchés export, Sacade SAS est en mesure de vous proposer un portefeuille de spiritueux rigoureusement sélectionnés sur des critères d’authenticité, de qualité et de caractère.',
   },
   {
     location: 'Sud-Ouest',
