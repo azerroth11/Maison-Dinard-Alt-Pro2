@@ -680,8 +680,10 @@ data.forEach((domain) => {
 
 const swiper2 = new Swiper('.swiper2', {
   direction: 'horizontal',
+  autoplay: { delay: 1250 },
+  loop: true,
   slidesPerView: 'auto',
-  centeredSlides: false,
+  // centeredSlides: false,
   grabCursor: true,
   navigation: {
     prevEl: '.swiper-button-prev',

@@ -348,7 +348,7 @@ nav .navigation > a {
   object-fit: contain;
   max-height: 100px;
   max-width: 150px;
-  filter: saturate(0) opacity(50%);
+  /* filter: saturate(0) opacity(50%); */
 }
 
 .logosDiv img:hover {
