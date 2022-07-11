@@ -84,9 +84,6 @@ navigationItems.forEach((a) => {
       })
       const domainDetails = document.querySelector('.rollableMenu')
       orderArray(orderedArray, domainDetails, rollableMenu)
-      const divTitle = domainDetails.appendChild(document.createElement('p'))
-      divTitle.classList.add('choice')
-      divTitle.innerText = 'Liste des Domaines: A-Z'
     } // Appellations
     else if (a.innerText == 'Appellations') {
       clearRollableMenu(rollableMenu)
@@ -97,10 +94,7 @@ navigationItems.forEach((a) => {
           orderedArray.push(product)
         })
       })
-      orderArray(orderedArray, domainDetails, rollableMenu)
-      const divTitle = domainDetails.appendChild(document.createElement('p'))
-      divTitle.classList.add('choice')
-      divTitle.innerText = 'Liste des Appellations: A-Z'
+      orderArray(orderedArray, domainDetails, rollableMenu)      
     }
   })
 })
