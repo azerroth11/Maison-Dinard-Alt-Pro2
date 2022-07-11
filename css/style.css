@@ -353,7 +353,7 @@ nav .navigation > a {
 
 .logosDiv img:hover {
   cursor: pointer;
-  filter: saturate(1) opacity(100%);
+  scale: 1.025;
 }
 
 /* Preload */
