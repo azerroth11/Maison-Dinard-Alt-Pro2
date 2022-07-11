@@ -187,11 +187,11 @@ function addClickEvent(domain, details) {
       domainLink.target = '_blank'
     }
     resultContainer.style = `background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75)), url('./img/domainesBG/${domain.id}.webp') center no-repeat;`
-    const domainCloseBtn = resultContainer.appendChild(document.createElement('i'))
-    domainCloseBtn.classList.add('fas', 'fa-times')
-    domainCloseBtn.addEventListener('click', () => {
-      resultContainer.remove()
-    })
+    // const domainCloseBtn = resultContainer.appendChild(document.createElement('i'))
+    // domainCloseBtn.classList.add('fas', 'fa-times')
+    // domainCloseBtn.addEventListener('click', () => {
+    //   resultContainer.remove()
+    // })
   })
 }
 
