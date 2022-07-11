@@ -195,7 +195,7 @@ nav .navigation > a {
   padding: 0 2rem;
   gap: 2rem;
   border: 2px solid black;
-  background-color: #000;
+  background-color: #fff;
   background-size: cover !important;
 }
 
