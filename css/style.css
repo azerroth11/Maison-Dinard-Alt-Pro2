@@ -253,7 +253,7 @@ nav .navigation > a {
 
 .domainResult .webSiteBTN {
   padding: 0.75rem 2rem;
-  margin: 2rem auto 0 auto;
+  margin: 2rem 0;
   width: fit-content;
   background-color: var(--secondary);
   color: #fff;
