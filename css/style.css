@@ -194,7 +194,6 @@ nav .navigation > a {
   z-index: 9;
   padding: 0 2rem;
   gap: 2rem;
-  border: 2px solid black;
   background-color: #fff;
   background-size: cover !important;
 }
@@ -355,6 +354,11 @@ nav .navigation > a {
 .logosDiv img:hover {
   cursor: pointer;
   filter: saturate(1) opacity(100%);
+}
+
+/* Preload */
+.preload {
+  display: none;
 }
 
 /* About */

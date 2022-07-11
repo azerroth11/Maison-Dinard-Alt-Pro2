@@ -688,3 +688,10 @@ const swiper2 = new Swiper('.swiper2', {
     nextEl: '.swiper-button-next',
   },
 })
+
+// Preload for domainsBG
+data.forEach((domain) => {
+  const preloadDIV = document.querySelector('.preload')
+  const imgpre = preloadDIV.appendChild(document.createElement('img'))
+  imgpre.src = `./img/domainesBG/${domain.id}.webp`
+})
