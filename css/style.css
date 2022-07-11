@@ -38,6 +38,11 @@ img {
   max-height: 100%;
 }
 
+/* JS */
+.hidden {
+  visibility: hidden;
+}
+
 /*************
 End of Commons
 *************/
@@ -263,29 +268,6 @@ nav .navigation > a {
 
 .domainResult .webSiteBTN:hover {
   scale: 1.03;
-}
-
-.domainResult i {
-  position: absolute;
-  top: 3rem;
-  right: 1.5rem;
-  font-size: 30px;
-  transition: scale 0.2s;
-  color: #fff;
-}
-
-.domainResult i:hover {
-  cursor: pointer;
-  text-shadow: 0 0 2px #000;
-}
-
-.domainResult i p {
-  transform: rotate(90deg);
-  position: absolute;
-  top: 175%;
-  left: -100%;
-  font-weight: 300;
-  font-size: 1.5rem;
 }
 
 .domainResult img {

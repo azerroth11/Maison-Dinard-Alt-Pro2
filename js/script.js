@@ -166,8 +166,10 @@ function addClickEvent(domain, details) {
       domainResult.remove()
     }
     const hero = document.querySelector('.hero')
+    document.querySelector('.swiper').classList.add('hidden')
     const resultContainer = hero.appendChild(document.createElement('div'))
     resultContainer.classList.add('domainResult')
+    resultContainer.style = `background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.5)), url('./img/domainesBG/${domain.id}.webp') center no-repeat;`
     const domainLogo = resultContainer.appendChild(document.createElement('img'))
     domainLogo.src = domain.logo
     const domainDetailsDiv = resultContainer.appendChild(document.createElement('div'))
@@ -186,12 +188,6 @@ function addClickEvent(domain, details) {
       domainLink.href = domain.web
       domainLink.target = '_blank'
     }
-    resultContainer.style = `background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75)), url('./img/domainesBG/${domain.id}.webp') center no-repeat;`
-    // const domainCloseBtn = resultContainer.appendChild(document.createElement('i'))
-    // domainCloseBtn.classList.add('fas', 'fa-times')
-    // domainCloseBtn.addEventListener('click', () => {
-    //   resultContainer.remove()
-    // })
   })
 }
 
