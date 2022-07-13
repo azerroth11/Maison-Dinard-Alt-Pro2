@@ -616,6 +616,8 @@ contact.addEventListener('click', () => {
   const pierrickIMG = pierrickDiv.appendChild(document.createElement('img'))
   pierrickIMG.src = './img/Pierrick.webp'
   const pierrickInnerDiv = pierrickDiv.appendChild(document.createElement('div'))
+  const pierrickName = pierrickInnerDiv.appendChild(document.createElement('p'))
+  pierrickName.innerText = 'Pierrick DINARD'
   const pierrickMail = pierrickInnerDiv.appendChild(document.createElement('a'))
   pierrickMail.innerText = 'Mail: pierrick.dinard@maisondinard.fr'
   pierrickMail.href = 'mailto:pierrick.dinard@maisondinard.fr'
@@ -626,6 +628,8 @@ contact.addEventListener('click', () => {
   const antoineIMG = antoineDiv.appendChild(document.createElement('img'))
   antoineIMG.src = './img/Antoine.webp'
   const antoineInnerDiv = antoineDiv.appendChild(document.createElement('div'))
+  const antoineName = antoineInnerDiv.appendChild(document.createElement('p'))
+  antoineName.innerText = 'Antoine DINARD'
   const antoineMail = antoineInnerDiv.appendChild(document.createElement('a'))
   antoineMail.innerText = 'Mail: dinard.antoine@gmail.com'
   antoineMail.href = 'mailto:dinard.antoine@gmail.com'
@@ -665,18 +669,18 @@ about.addEventListener('click', () => {
     contact.innerText = 'Contactez-nous'
     contact.href = 'mailto:pierrick.dinard@maisondinard.fr'
     // aboutClients
-    const aboutClients = aboutDiv.appendChild(document.createElement('div'))
-    aboutClients.classList.add('aboutClients')
-    const clients = aboutClients.appendChild(document.createElement('h2'))
-    clients.innerText = 'Nos clients:'
-    const aboutClientsLogoDiv = aboutClients.appendChild(document.createElement('div'))
-    aboutClientsLogoDiv.classList.add('aboutClientsLogoDiv')
-    const clientLogo1 = aboutClientsLogoDiv.appendChild(document.createElement('img'))
-    clientLogo1.src = './img/clientsLogo/hotels.webp'
-    const clientLogo2 = aboutClientsLogoDiv.appendChild(document.createElement('img'))
-    clientLogo2.src = './img/clientsLogo/caviste.webp'
-    const clientLogo3 = aboutClientsLogoDiv.appendChild(document.createElement('img'))
-    clientLogo3.src = './img/clientsLogo/restaurant.webp'
+    // const aboutClients = aboutDiv.appendChild(document.createElement('div'))
+    // aboutClients.classList.add('aboutClients')
+    // const clients = aboutClients.appendChild(document.createElement('h2'))
+    // clients.innerText = 'Nos clients:'
+    // const aboutClientsLogoDiv = aboutClients.appendChild(document.createElement('div'))
+    // aboutClientsLogoDiv.classList.add('aboutClientsLogoDiv')
+    // const clientLogo1 = aboutClientsLogoDiv.appendChild(document.createElement('img'))
+    // clientLogo1.src = './img/clientsLogo/hotels.webp'
+    // const clientLogo2 = aboutClientsLogoDiv.appendChild(document.createElement('img'))
+    // clientLogo2.src = './img/clientsLogo/caviste.webp'
+    // const clientLogo3 = aboutClientsLogoDiv.appendChild(document.createElement('img'))
+    // clientLogo3.src = './img/clientsLogo/restaurant.webp'
   }
 })
 
