@@ -77,8 +77,8 @@ nav .logo .desktopLinks {
 
 nav .navigation {
   font-size: 1.2rem;
-  border-top: 2px solid grey;
-  border-bottom: 2px solid grey;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -90,6 +90,7 @@ nav .navigation {
 nav .navigation > a {
   transition: background-color 0.25s;
   padding: 1rem 0;
+  /* text-transform: uppercase; */
   text-align: center;
   margin: 0 auto;
   flex: 0;
@@ -134,6 +135,7 @@ nav .navigation > a {
   position: absolute;
   width: 100%;
   max-width: 1300px;
+  max-height: 368px;
   display: flex;
   flex-wrap: wrap;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
