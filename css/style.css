@@ -103,7 +103,7 @@ nav .navigation > a {
 .hero {
   position: relative;
   max-width: 1300px;
-  margin: 0 auto 2rem auto;
+  margin: 0 auto 4rem auto;
 }
 
 .swiper img {
@@ -177,7 +177,8 @@ nav .navigation > a {
 .rollableMenu a:hover:not(.webSiteBTN, .aboutDiv a),
 .rollableMenu div a:hover,
 .rollableMenu div a:focus {
-  font-weight: bold;
+  /* font-weight: bold; */
+  text-decoration: underline;
 }
 
 /* Domain Details */
